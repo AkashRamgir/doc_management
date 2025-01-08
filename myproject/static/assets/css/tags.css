@@ -1,0 +1,103 @@
+.tag_menu{
+    list-style: none;
+    margin-left: 0px;
+    padding-left: 0px;
+    display: flex;
+    font-family: var(--font-roboto);
+}
+.select-tag{
+    width: fit-content;
+    padding:3px 15px;
+    font-family: var(--font-roboto);
+    border-radius: 5px;
+    border: 1px solid #555;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+
+}
+.select-tag:hover{
+  background: #ebebeb;
+}
+.select-tag .tag_sub_menu{
+    position: absolute;
+    left: 0;
+    list-style: none;
+    padding-left: 0px;
+    margin-left: 0px;
+    max-width: 250px;
+    width: 250px;
+    display: none;
+    padding: 15px 0px 15px 0px;
+    margin-top: 10px;
+    box-shadow: 0px 0px 3px rgba(90, 90, 90, 0.25);
+    border-radius: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-weight: 500;
+    background: #fff !important;
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px transparent; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c7c7c7; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }
+  .tag_sub_menu li{
+    padding-block: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  /* .tag_sub_menu li:hover{
+    background: rgb(215, 224, 230);
+  } */
+
+
+/*
+-----------------------------------------
+Profile image Css code starts here
+-----------------------------------------
+*/
+/* .avatar_wrapper{
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+.border-search{
+  border: 3px solid #6331f7;
+}
+.avatar_container{
+  width: 100%;
+}
+.avatar_container .avatar{
+  width: 30px;
+  height: 30px;
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar .avatar_initials{
+  font-weight: 600;
+  color: #fff;
+  font-size: 15px;
+}

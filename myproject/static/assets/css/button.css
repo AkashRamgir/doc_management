@@ -1,0 +1,37 @@
+.btn-theme{
+    padding: 5px 20px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    transition: 100ms all ease;
+    /* opacity: 0.5; */
+    background-color:transparent;
+}
+.hover-light-purple:hover{
+    background-color:rgba(161, 66, 244, 0.2);
+}
+.hover-light-blue:hover{
+    background-color:rgba(66, 133, 244, 0.2);
+    color: #4285f4;
+}
+.btn-theme span{
+    opacity: 1 !important;
+}
+.toggle_list_btn{
+    background: transparent;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-block: 7px;
+    border: 1px solid #1f1f1f;
+    font-weight: normal;
+    display: flex;
+}
+.left-radius{
+    border-radius: 20px 0px 0px 20px 
+}
+.right-radius{
+    border-radius: 0 20px 20px 0 
+}
+.toggle_list_btn.active{
+    background-color: var(--theme-blue-light);
+}

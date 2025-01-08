@@ -1,0 +1,242 @@
+*{
+    letter-spacing: 0.6px;
+    font-size: 16px;
+}
+.font-12 {
+    font-size: 12px;
+}
+.font-13 {
+    font-size: 13px;
+}
+.font-14 {
+    font-size: 14px;
+}
+.font-15 {
+    font-size: 15px;
+}
+.font-16 {
+    font-size: 16px;
+}
+.font-17 {
+    font-size: 17px;
+}
+.font-18 {
+    font-size: 18px;
+}
+.font-19 {
+    font-size: 19px;
+}
+.font-20 {
+    font-size: 20px;
+}
+.font-21 {
+    font-size: 21px;
+}
+.font-22 {
+    font-size: 22px;
+}
+.font-23 {
+    font-size: 23px;
+}
+.font-24 {
+    font-size: 24px;
+}
+.font-25 {
+    font-size: 25px;
+}
+.font-26 {
+    font-size: 26px;
+}
+.font-27 {
+    font-size: 27px;
+}
+.font-28 {
+    font-size: 28px;
+}
+.font-29 {
+    font-size: 29px;
+}
+.font-30 {
+    font-size: 30px;
+}
+.font-31 {
+    font-size: 31px;
+}
+.font-32 {
+    font-size: 32px;
+}
+.font-33 {
+    font-size: 33px;
+}
+.font-34 {
+    font-size: 34px;
+}
+.font-35 {
+    font-size: 35px;
+}
+.font-36 {
+    font-size: 36px;
+}
+.font-37 {
+    font-size: 37px;
+}
+.font-38 {
+    font-size: 38px;
+}
+.font-39 {
+    font-size: 39px;
+}
+.font-40 {
+    font-size: 40px;
+}
+.font-41 {
+    font-size: 41px;
+}
+.font-42 {
+    font-size: 42px;
+}
+.font-43 {
+    font-size: 43px;
+}
+.font-44 {
+    font-size: 44px;
+}
+.font-45 {
+    font-size: 45px;
+}
+.font-46 {
+    font-size: 46px;
+}
+.font-47 {
+    font-size: 47px;
+}
+.font-48 {
+    font-size: 48px;
+}
+.font-49 {
+    font-size: 49px;
+}
+.font-50 {
+    font-size: 50px;
+}
+.theme-shadow{
+    box-shadow: var(--theme-shadow) !important;
+}
+
+/* 
+--------------------------------------------------------------------
+FONT COLOR CSS CODE
+--------------------------------------------------------------------
+*/
+.theme-blue{
+    color: var(--theme-blue) ;
+}
+.theme-green{
+    color: var(--theme-green) ;
+}
+.theme-green-img{
+    fill: var(--theme-green) ;
+}
+.theme-gray-img{
+    fill: var(--theme-gray-1) ;
+}
+.theme-yellow-img{
+    fill: var(--theme-yellow) ;
+}
+.theme-blue-img{
+    fill: var(--theme-blue) ;
+}
+.theme-purple-img{
+    fill: var(--theme-purple) ;
+}
+.theme-purple-dark-img{
+    fill: var(--theme-purple-dark) ;
+}
+.theme-red-img{
+    fill: var(--theme-red) ;
+}
+.hover-menu{
+    transition: 150ms all ease-in-out;
+}
+.hover-menu:hover{
+    background: var(--hover-color);
+}
+
+/* 
+--------------------------------------------------------------------
+BACKGROUND COLORS 
+--------------------------------------------------------------------
+*/
+.bg-blue{
+    background: var(--theme-blue) ;
+}
+.bg-green{
+    background: var(--theme-green) ;
+}
+.bg-gray{
+    background: var(--theme-gray) ;
+}
+.bg-gray-1{
+    background: var(--theme-gray-1) ;
+}
+.bg-yellow{
+    background: var(--theme-yellow) ;
+}
+.bg-blue{
+    background: var(--theme-blue) ;
+}
+.bg-purple{
+    background: var(--theme-purple) ;
+}
+.bg-purple-dark{
+    background: var(--theme-purple-dark) ;
+}
+.bg-red{
+    background: var(--theme-red) ;
+}
+.radius-20{
+    border-radius: 20px !important;
+}
+
+
+/* 
+-----------------------------------------------
+FONT WEIGHT
+-----------------------------------------------
+*/
+.fw-100 {
+    font-weight: 100;
+}
+
+.fw-200 {
+    font-weight: 200;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.fw-900 {
+    font-weight: 900;
+}
+
