@@ -1,18 +1,40 @@
-
+@import url('./font.css');
 @font-face {
   /* font-family: 'Segoe UI Regular'; */
   font-family: "Segoe UI Regular", Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   src: local('Segoe UI Regular'), url('\static\assets\fonts\segoe\Segoe UI.woff') format('woff');
-  }
+}
+:root{
+  --theme-gray:#f8fafd;
+  --search-background:#e9eef6;
+  --search-btn:#cdd1d8;
+  --font-roboto:"Segoe UI Regular", Arial, sans-serif;
+  --default-font-size:18px;
+  --theme-blue:#4285f4;
+  --theme-blue-light:#c2e7ff;
+  --theme-green:#34a853;
+  --theme-yellow:#fbbc04;
+  --theme-purple:#a142f4;
+  --theme-purple-dark:#673ab7;
+  --theme-red:#ea4335;
+  --theme-dark:#1f1f1f;
+  --theme-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  --theme-gray-1 : #5f6368;
+  --hover-color:#e1e3e1;
+  --active-link-text: #004a77;
+}
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+.theme-dark{
+  color: var(--theme-dark);
+}
 body {
-  /* font-family: "Open Sans", sans-serif; */
-  font-family: "Segoe UI Regular", Arial, sans-serif;
+  font-family: "Open Sans", sans-serif;
+  /* font-family: "Segoe UI Regular", Arial, sans-serif; */
   background: #f8fafd;
   color:rgb(60,64,67);
 }
@@ -1660,7 +1682,7 @@ section {
   height: 85vh;
   border-radius:20px;
 }
-#main div{
+#main .main_wrapper{
   background: #fff;
   border-radius:20px;
   height: 100%;
@@ -1683,13 +1705,13 @@ section {
   padding-right: 15px;
 }
 .sidebar-menu .side-link.active{
-  background: #e1c4c3;
+  background: #c2e7ff;
 }
 .sidebar-menu .side-link.active .side-icon{
-  color:#9e140e;
+  color:var(--active-link-text);
 }
 .sidebar-menu .side-link.active .side-text{
-  color:#9e140e;
+  color:var(--active-link-text);
 }
 .shadow-small{
   box-shadow: 0px 0px 10px #d2d2d2;
@@ -1697,4 +1719,91 @@ section {
 .title-block{
   font-size: 25px;
   font-weight: 400;
+}
+.search_wrapper{
+  margin-top: 15px;
+  height: 48px;
+  border-radius: 24px;
+  border: 0;
+  font-family: var(--font-roboto);
+  font-size: var(--default-font-size);
+}
+.search_wrapper .search_container{
+  max-width: 800px;
+  background: var(--search-background);
+  border-radius: 24px;
+  margin: 0 auto;
+  position: relative;
+  
+}
+.search_wrapper input[type="text"]:focus{
+  box-shadow: none;
+  border: none;
+}
+.search_wrapper input[type="text"]{
+  padding: 12px 50px;
+  border: none;
+  background: transparent;
+}
+.search_wrapper .search_container::placeholder {
+  color: #1f1f1f;
+  opacity: 0.7;
+  font-weight: 500;
+}
+.search_wrapper .search_container .icon {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900; /* Required for solid icons */
+  content: '\f002';
+  font-size: 15px;
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  cursor: pointer;
+}
+
+.search_wrapper .search_container .icon:hover{
+  background: var(--search-btn);
+}
+.search_wrapper .search_container:focus-within {
+  background: #fff !important;
+  box-shadow: 0px 0px 8px #dddd;
+}
+
+.drop-containter {
+  max-height: 30vh;
+  padding-left: 15px;
+  padding-bottom: 15px;
+}
+#main_header{
+  height: 22vh;
+
+}
+.drop-containter *{
+  z-index: 500;
+}
+.main_wrapper{
+  padding-bottom: 25px;
+}
+#main_body{
+  margin-top: 20px;
+  height: 50vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.theme-table{
+  width: 100%;
+}
+.theme-table th{
+  font-size: 15px;
+  font-weight: 600;
+  border-bottom: 1px solid #d7d7d7;
+  padding-block: 15px;
 }

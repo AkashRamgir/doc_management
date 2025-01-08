@@ -1,0 +1,13 @@
+.vscomp-ele{
+    max-width: 100% !important;
+   
+
+}
+
+.vscomp-toggle-button{
+    border: 1px solid #ced4da !important;
+    padding: 0.59rem 1.375rem !important;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
