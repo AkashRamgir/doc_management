@@ -57,6 +57,23 @@
                 My Drive
             </div>
         </li>
-
+        {% if user.role == 'Admin' %}
+        <li class="side-link">
+            <div class="side-icon">
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <div class="side-text font-14">
+                Add User
+            </div>
+        </li>
+        {% endif %}
+        <li class="side-link">
+            <div class="side-icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <div class="side-text font-14">
+                <a href="/login">Logout</a>
+            </div>
+        </li>
     </ul>
 </div>
