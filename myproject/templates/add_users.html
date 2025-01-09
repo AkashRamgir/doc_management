@@ -1,0 +1,71 @@
+{% extends "user/base.html" %}
+
+{% load static %}
+{% block content %}
+
+<div class="main theme-dark" id="main">
+  <div class="border-0 pt-4 px-4 main_wrapper  w-100">
+    <div id="main_header">
+      <h5 class="title-block font-roboto text-center">Welcome to Drive</h5>
+
+      <div class="text-start mt-5 mb-2">
+        <a href="#" class="btn btn-primary btn-sm">
+            <i class="fa-solid fa-plus"></i>
+            Add User
+        </a>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="text-center">Sr. No</th>
+              <th class="text-center">User Profile</th>
+              <th class="text-center">Username</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Password</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if user_role %}
+              {% for user in user_role %}
+                <tr>
+                  <td class="text-center" style="vertical-align: middle;">{{ forloop.counter }}</td>
+                  <td>
+                    <div style="display: flex; align-items: center;">
+                      <!-- User Image -->
+                      <img
+                        src="{{ user.applicant_photo }}"
+                        alt="User Photo"
+                        style="border-radius: 50%; height: 80px; width: 80px; margin-right: 15px; border: 2px solid #ccc;"
+                      >
+                      <!-- User Info -->
+                      <div>
+                        <strong>{{ user.full_name }}</strong><br>
+                        <small style="color: #555;">{{ user.role }}</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="text-center" style="vertical-align: middle;">{{ user.username }}</td>
+                  <td class="text-center" style="vertical-align: middle;">{{ user.email }}</td>
+                  <td class="text-center" style="vertical-align: middle;">********</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="4" style="text-align: center;">No users found.</td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock content %}
