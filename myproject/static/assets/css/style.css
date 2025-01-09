@@ -10,7 +10,7 @@
   --theme-gray:#f8fafd;
   --search-background:#e9eef6;
   --search-btn:#cdd1d8;
-  --font-roboto:"Segoe UI Regular", Arial, sans-serif;
+  /* --font-roboto:"Segoe UI Regular", Arial, sans-serif; */
   --default-font-size:18px;
   --theme-blue:#4285f4;
   --theme-blue-light:#c2e7ff;
@@ -33,13 +33,15 @@
   color: var(--theme-dark);
 }
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto Flex", serif;
   /* font-family: "Segoe UI Regular", Arial, sans-serif; */
   background: #f8fafd;
   color:rgb(60,64,67);
+  line-height:1;
+  letter-spacing: 0;
 }
 .font-roboto{
-  font-family: "Roboto", serif;
+  font-family: "Roboto Flex", serif;
 }
 /* .font-15px{
   font-size: 18px;
@@ -1618,16 +1620,16 @@ section {
 .navbar .profile-img{
   max-width: 60px;
   max-height: 60px;
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   object-fit: cover;
   border-radius: 50%;
 }
 
 .faicon{
-  font-size: 18px;
-  width: 50px;
-  height: 50px;
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1664,7 +1666,7 @@ section {
   font-weight: 500;
 }
 .new-btn i{
-  font-size: 22px;
+  /* font-size: 22px; */
   font-weight: 300;
 }
 .wrapper-main{
@@ -1689,7 +1691,7 @@ section {
   border: 0.5px solid #d2d2ddef !important;
 }
 .sidebar-menu .side-link{
-  padding: 5px 2px 5px 12px;
+  padding: 10px 2px 10px 12px;
   display: flex;
   align-items: center;
   font-size: 16px;
@@ -1724,7 +1726,7 @@ section {
   margin-top: 15px;
   border-radius: 24px;
   border: 0;
-  font-family: var(--font-roboto);
+  /* font-family: var(--font-roboto); */
   font-size: var(--default-font-size);
 }
 .search_wrapper .search_container{
@@ -1818,7 +1820,7 @@ section {
   letter-spacing: 0px;
 }
 .table-btn{
-  padding: 15px 15px 15px 15px;
+  padding: 8px 15px;
   border-radius: 25px;
   font-size: 15px;
 }

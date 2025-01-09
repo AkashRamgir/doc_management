@@ -3,12 +3,12 @@
     margin-left: 0px;
     padding-left: 0px;
     display: flex;
-    font-family: var(--font-roboto);
+    /* font-family: var(--font-roboto); */
 }
 .select-tag{
     width: fit-content;
     padding:3px 15px;
-    font-family: var(--font-roboto);
+    /* font-family: var(--font-roboto); */
     border-radius: 5px;
     border: 1px solid #555;
     font-size: 15px;
