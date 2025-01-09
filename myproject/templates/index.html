@@ -1,837 +1,777 @@
+{% extends "user/base.html" %}
+
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Doc Management</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="{% static 'img/favicon.png' %}" rel="icon">
-  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-    rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-  <!-- <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
-  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet"> -->
-  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-    rel="stylesheet">
-  <!-- 
-  ----------------------------------------------
-  FOR TAGS CSS
-  ----------------------------------------------
-  -->
-  <link href="{% static 'assets/css/tags.css' %}" rel="stylesheet">
-  <!-- 
-  ----------------------------------------------
-  FOR FONTS CSS
-  ----------------------------------------------
-  -->
-  <link href="{% static 'assets/css/font.css' %}" rel="stylesheet">
-  <!-- 
-  ----------------------------------------------
-  FOR BUTTON CSS
-  ----------------------------------------------
-  -->
-  <link href="{% static 'assets/css/button.css' %}" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" href="{% static 'assets/lib/multiSelect/multiSelectCSS/virtual-select.min.css' %}">
-  <script src="{% static 'assets/lib/multiSelect/multiSelectJS/virtual-select.js' %}"></script>
-  <script src="{% static 'assets/lib/multiSelect/multiSelectJS/virtual-select.min.js' %}"></script>
-  <link rel="stylesheet" href="{% static 'assets/css/tags.css' %}">
-</head>
-
-<body>
-
-  <!-- ======= Header ======= -->
-  <header id="header" class="">
-    <div class="container-fluid d-flex align-items-center justify-content-between ">
-
-      <!-- Logo Section -->
-      <div class="d-flex align-items-center justify-content-center">
-        <img src="https://mahashabari.in/images/maha_gov_logo.png" class="logo" alt="Logo">
-        <h1 class="cmp-name mb-0  ms-2 text-dark">Drive</h1>
-      </div>
-
-      <!-- Navigation and Actions -->
-      <div class="d-flex align-items-center">
-        <nav id="navbar" class="navbar">
-          <ul class="d-flex align-items-center">
-            <li><a class="nav-link" href="/"><i class="fa-solid fa-house faicon p-0 m-0"></i></a></li>
-            <li><a class="nav-link" href="/"><i class="fa-solid fa-gear faicon p-0 m-0"></i></a></li>
-            <li class="dropdown">
-              <a href="#" class="nav-link" id="profileDropdown">
-                <img src="/static/assets/img/team/team-2.jpg" alt="Profile Picture" class="profile-img faicon">
-              </a>
-<!--              <ul id="profileMenu" class="dropdown-menu">-->
-<!--                <li><a href="#">Profile</a></li>-->
-<!--                <li><a href="#">Settings</a></li>-->
-<!--                <li><a href="/">Logout</a></li>-->
-<!--              </ul>-->
-            </li>
+{% block content %}
 
 
-          </ul>
-        </nav>
-      </div>
+<div class="main theme-dark" id="main">
+  <div class="border-0 pt-4 px-4 main_wrapper  w-100                              ">
+    <div id="main_header">
+      <h5 class="title-block font-roboto text-center">Welcome to Drive</h5>
+      <div class="search_wrapper ">
+        <div class="search_container position-relative">
+          <div class="position-relative">
+            <input type="text" class="form-control position-relative" placeholder="Search In Drive">
+            <i class="fa-solid fa-magnifying-glass icon"></i>
+          </div>
+          <div class="drop-containter d-none">
+            <div class="tags_wrapper mt-3">
+              <ul class="tag_menu">
+                <li class="select-tag ">
+                  <span class="font-16">Type</span>
+                  <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
+                    <path d="M7 10l5 5 5-5H7z"></path>
+                  </svg>
+                  <ul class="tag_sub_menu  theme-shadow">
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" class="theme-gray-img">
+                          <path
+                            d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Folder
+                      </div>
+                    </li>
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-blue-img">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1.99 6H7V7h10.01v2zm0 4H7v-2h10.01v2zm-3 4H7v-2h7.01v2z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Document
+                      </div>
+                    </li>
 
-    </div>
-  </header>
-  <section class="py-0 container-fluid  w-100">
-    <div class="wrapper-main">
-      <div id="sidebar">
-        <div class="sidebar-header py-3 new-btn-container">
-          <button class="new-btn"><i class="fa-solid fa-plus"></i> <span class="ms-2 font-15px">New</span></button>
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-green-img">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path
+                            d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 8v11c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 8h-8v8H9v-8H5V9h4V5h2v4h8v2z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Spreadsheets
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-yellow-img">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path
+                            d="M19 3H5c-1.1 0-1.99.9-1.99 2v14c0 1.1.89 2 1.99 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H5V8h14v8z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Presentation
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" viewBox="0 -960 960 960" height="24" width="24" class="theme-purple-img">
+                          <path
+                            d="M300-240L700-480L300-720v480Zm80-141V-579l164,99L380-381ZM200-120q-33,0-56.5-23.5T120-200V-760q0-33 23.5-56.5T200-840H760q33,0 56.5,23.5T840-760v560q0,33-23.5,56.5T760-120H200Z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Vids
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-purple-dark-img">
+                          <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2zm0-4H7v-2h2v2zm0-4H7V7h2v2zm8 8h-7v-2h7v2zm0-4h-7v-2h7v2zm0-4h-7V7h7v2z">
+                          </path>
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Forms
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path
+                            d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Photos & Images
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
+                          <path
+                            d="M7 11.5h1v-1H7v1zM19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9.5 8.5c0 .83-.67 1.5-1.5 1.5H7v2H5.5V9H8c.83 0 1.5.67 1.5 1.5v1zm10-1H17v1h1.5V13H17v2h-1.5V9h4v1.5zm-5 3c0 .83-.67 1.5-1.5 1.5h-2.5V9H13c.83 0 1.5.67 1.5 1.5v3zm-2.5 0h1v-3h-1v3z">
+                          </path>
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        PDFs
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
+                          <path
+                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z">
+                          </path>
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Videos
+                      </div>
+                    </li>
+
+                  </ul>
+                </li>
+
+                <li class="select-tag ms-2">
+                  <span class="font-16">People</span>
+                  <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
+                    <path d="M7 10l5 5 5-5H7z"></path>
+                  </svg>
+                  <ul class="tag_sub_menu  theme-shadow">
+                    <li class="row hover-menu align-items-center border-search mx-0">
+                      <div class="col-2">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        <input type="text" placeholder="Search here ...." class="form-control font-16 ps-0 search_user">
+                      </div>
+                    </li>
+                    <li class="row hover-menu mx-0 align-items-center mt-1 search_user_container">
+                      <div class="col-2 ps-1">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <div class="avatar bg-purple">
+                              <span class="avatar_initials">T</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        Tanmay Potbhare
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center search_user_container">
+                      <div class="col-2 ps-1">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <div class="avatar bg-blue">
+                              <span class="avatar_initials">A</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        Akash Ramgir
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center search_user_container">
+                      <div class="col-2 ps-1">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <div class="avatar bg-green">
+                              <span class="avatar_initials">A</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        Aditya Pawale
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center search_user_container">
+                      <div class="col-2 ps-1">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <div class="avatar bg-purple-dark">
+                              <span class="avatar_initials">A</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        Arati Dasa
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center search_user_container">
+                      <div class="col-2 ps-1">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <div class="avatar bg-red">
+                              <span class="avatar_initials">J</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        Jaishree Godge
+                      </div>
+                    </li>
+
+                  </ul>
+                </li>
+
+                <li class="select-tag ms-2">
+                  <span class="font-16">Modified</span>
+                  <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
+                    <path d="M7 10l5 5 5-5H7z"></path>
+                  </svg>
+                  <ul class="tag_sub_menu  theme-shadow">
+                    <li class="row hover-menu mx-0 align-items-center mt-1">
+                      <div class="col-2 ps-1">
+
+                      </div>
+                      <div class="col-10">
+                        Today
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center">
+                      <div class="col-2 ps-1">
+
+                      </div>
+                      <div class="col-10">
+                        Last 7 days
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center">
+                      <div class="col-2 ps-1">
+
+                      </div>
+                      <div class="col-10">
+                        Last 30 days
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center">
+                      <div class="col-2 ps-1">
+                      </div>
+                      <div class="col-10">
+                        This Year (2025)
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center">
+                      <div class="col-2 ps-1">
+                      </div>
+                      <div class="col-10">
+                        Last Year (2024)
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center">
+                      <div class="col-2 ps-1">
+
+                      </div>
+                      <div class="col-10">
+                        Custom date range
+                      </div>
+                    </li>
+
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="h-100">
+          <div class="d-flex justify-content-center">
+            <div class="tags_wrapper mt-3">
+              <ul class="tag_menu">
+                <li class="select-tag radius-20">
+                  <span class="font-16"><i class="fa-regular fa-file"></i> Type</span>
+                  <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
+                    <path d="M7 10l5 5 5-5H7z"></path>
+                  </svg>
+                  <ul class="tag_sub_menu  theme-shadow">
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" class="theme-gray-img">
+                          <path
+                            d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Folder
+                      </div>
+                    </li>
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-blue-img">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1.99 6H7V7h10.01v2zm0 4H7v-2h10.01v2zm-3 4H7v-2h7.01v2z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Document
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-green-img">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path
+                            d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 8v11c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 8h-8v8H9v-8H5V9h4V5h2v4h8v2z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Spreadsheets
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-yellow-img">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path
+                            d="M19 3H5c-1.1 0-1.99.9-1.99 2v14c0 1.1.89 2 1.99 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H5V8h14v8z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Presentation
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" viewBox="0 -960 960 960" height="24" width="24" class="theme-purple-img">
+                          <path
+                            d="M300-240L700-480L300-720v480Zm80-141V-579l164,99L380-381ZM200-120q-33,0-56.5-23.5T120-200V-760q0-33 23.5-56.5T200-840H760q33,0 56.5,23.5T840-760v560q0,33-23.5,56.5T760-120H200Z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Vids
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-purple-dark-img">
+                          <path
+                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2zm0-4H7v-2h2v2zm0-4H7V7h2v2zm8 8h-7v-2h7v2zm0-4h-7v-2h7v2zm0-4h-7V7h7v2z">
+                          </path>
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Forms
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                          <path
+                            d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z">
+                          </path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Photos & Images
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
+                          <path
+                            d="M7 11.5h1v-1H7v1zM19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9.5 8.5c0 .83-.67 1.5-1.5 1.5H7v2H5.5V9H8c.83 0 1.5.67 1.5 1.5v1zm10-1H17v1h1.5V13H17v2h-1.5V9h4v1.5zm-5 3c0 .83-.67 1.5-1.5 1.5h-2.5V9H13c.83 0 1.5.67 1.5 1.5v3zm-2.5 0h1v-3h-1v3z">
+                          </path>
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        PDFs
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0">
+                      <div class="col-2">
+                        <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
+                          <path
+                            d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z">
+                          </path>
+                          <path d="M0 0h24v24H0z" fill="none"></path>
+                        </svg>
+                      </div>
+                      <div class="col-10">
+                        Videos
+                      </div>
+                    </li>
+
+                  </ul>
+                </li>
+
+                <li class="select-tag ms-2  radius-20">
+                  <span class="font-16">
+                    <i class="fa-regular fa-user"></i> People
+                  </span>
+                  <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
+                    <path d="M7 10l5 5 5-5H7z"></path>
+                  </svg>
+                  <ul class="tag_sub_menu  theme-shadow">
+                    <li class="row hover-menu align-items-center border-search mx-0">
+                      <div class="col-2">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        <input type="text" placeholder="Search here ...." class="form-control font-16 ps-0 search_user">
+                      </div>
+                    </li>
+                    <li class="row hover-menu mx-0 align-items-center mt-1 search_user_container">
+                      <div class="col-2 ps-1">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <div class="avatar bg-purple">
+                              <span class="avatar_initials">T</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        Tanmay Potbhare
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center search_user_container">
+                      <div class="col-2 ps-1">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <div class="avatar bg-blue">
+                              <span class="avatar_initials">A</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        Akash Ramgir
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center search_user_container">
+                      <div class="col-2 ps-1">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <div class="avatar bg-green">
+                              <span class="avatar_initials">A</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        Aditya Pawale
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center search_user_container">
+                      <div class="col-2 ps-1">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <div class="avatar bg-purple-dark">
+                              <span class="avatar_initials">A</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        Arati Dasa
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center search_user_container">
+                      <div class="col-2 ps-1">
+                        <div class="avatar_wrapper">
+                          <div class="avatar_container">
+                            <div class="avatar bg-red">
+                              <span class="avatar_initials">J</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-10">
+                        Jaishree Godge
+                      </div>
+                    </li>
+
+                  </ul>
+                </li>
+
+                <li class="select-tag ms-2  radius-20">
+                  <span class="font-16"><i class="fa-regular fa-calendar"></i> Modified</span>
+                  <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
+                  <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
+                    <path d="M7 10l5 5 5-5H7z"></path>
+                  </svg>
+                  <ul class="tag_sub_menu  theme-shadow">
+                    <li class="row hover-menu mx-0 align-items-center mt-1">
+                      <div class="col-2 ps-1">
+
+                      </div>
+                      <div class="col-10">
+                        Today
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center">
+                      <div class="col-2 ps-1">
+
+                      </div>
+                      <div class="col-10">
+                        Last 7 days
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center">
+                      <div class="col-2 ps-1">
+
+                      </div>
+                      <div class="col-10">
+                        Last 30 days
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center">
+                      <div class="col-2 ps-1">
+                      </div>
+                      <div class="col-10">
+                        This Year (2025)
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center">
+                      <div class="col-2 ps-1">
+                      </div>
+                      <div class="col-10">
+                        Last Year (2024)
+                      </div>
+                    </li>
+
+                    <li class="row hover-menu mx-0 align-items-center">
+                      <div class="col-2 ps-1">
+
+                      </div>
+                      <div class="col-10">
+                        Custom date range
+                      </div>
+                    </li>
+
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        <ul class="sidebar-menu">
-          <li class="side-link active">
-            <div class="side-icon">
-              <i class="fa-solid fa-house-chimney"></i>
-            </div>
-            <div class="side-text">
-              Home
-            </div>
-          </li>
-          <li class="side-link">
-            <div class="side-icon">
-              <i class="fa-brands fa-google-drive"></i>
-            </div>
-            <div class="side-text">
-              My Drive
-            </div>
-          </li>
-          {% if user.role == 'Admin' %}
-             <li class="side-link">
-                <div class="side-icon">
-                  <i class="fa-solid fa-plus"></i>
-                </div>
-                <div class="side-text">
-                  <a href="/addUser">Add Users</a>
-                </div>
-              </li>
-          {% endif %}
-          <li class="side-link">
-            <div class="side-icon">
-              <i class="fa-solid fa-right-from-bracket"></i>
-            </div>
-            <div class="side-text">
-              <a href="/login">Logout</a>
-            </div>
-          </li>
-        </ul>
-
       </div>
-      <div class="main theme-dark" id="main">
-        <div class="border-0 pt-4 px-4   w-100 main_wrapper">
-          <div id="main_header">
-            <h5 class="title-block font-roboto text-center">Welcome to Drive</h5>
-            <div class="search_wrapper ">
-              <div class="search_container position-relative">
-                <div class="position-relative">
-                  <input type="text" class="form-control position-relative" placeholder="Search In Drive">
-                  <i class="fa-solid fa-magnifying-glass icon"></i>
-                </div>
-                <div class="drop-containter d-none">
-                  <div class="tags_wrapper mt-3">
-                    <ul class="tag_menu">
-                      <li class="select-tag ">
-                        <span class="font-16">Type</span>
-                        <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
-                        <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
-                          <path d="M7 10l5 5 5-5H7z"></path>
-                        </svg>
-                        <ul class="tag_sub_menu  theme-shadow">
-                          <li class="row hover-menu mx-0">
-                            <div class="col-2">
-                              <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" class="theme-gray-img">
-                                <path
-                                  d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z">
-                                </path>
-                              </svg>
-                            </div>
-                            <div class="col-10">
-                              Folder
-                            </div>
-                          </li>
-                          <li class="row hover-menu mx-0">
-                            <div class="col-2">
-                              <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-blue-img">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path
-                                  d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1.99 6H7V7h10.01v2zm0 4H7v-2h10.01v2zm-3 4H7v-2h7.01v2z">
-                                </path>
-                              </svg>
-                            </div>
-                            <div class="col-10">
-                              Document
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0">
-                            <div class="col-2">
-                              <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-green-img">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path
-                                  d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 8v11c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 8h-8v8H9v-8H5V9h4V5h2v4h8v2z">
-                                </path>
-                              </svg>
-                            </div>
-                            <div class="col-10">
-                              Spreadsheets
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0">
-                            <div class="col-2">
-                              <svg focusable="false" height="24" viewBox="0 0 24 24" width="24"
-                                class="theme-yellow-img">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path
-                                  d="M19 3H5c-1.1 0-1.99.9-1.99 2v14c0 1.1.89 2 1.99 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H5V8h14v8z">
-                                </path>
-                              </svg>
-                            </div>
-                            <div class="col-10">
-                              Presentation
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0">
-                            <div class="col-2">
-                              <svg focusable="false" viewBox="0 -960 960 960" height="24" width="24"
-                                class="theme-purple-img">
-                                <path
-                                  d="M300-240L700-480L300-720v480Zm80-141V-579l164,99L380-381ZM200-120q-33,0-56.5-23.5T120-200V-760q0-33 23.5-56.5T200-840H760q33,0 56.5,23.5T840-760v560q0,33-23.5,56.5T760-120H200Z">
-                                </path>
-                              </svg>
-                            </div>
-                            <div class="col-10">
-                              Vids
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0">
-                            <div class="col-2">
-                              <svg focusable="false" height="24" viewBox="0 0 24 24" width="24"
-                                class="theme-purple-dark-img">
-                                <path
-                                  d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2zm0-4H7v-2h2v2zm0-4H7V7h2v2zm8 8h-7v-2h7v2zm0-4h-7v-2h7v2zm0-4h-7V7h7v2z">
-                                </path>
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                              </svg>
-                            </div>
-                            <div class="col-10">
-                              Forms
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0">
-                            <div class="col-2">
-                              <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                                <path
-                                  d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z">
-                                </path>
-                              </svg>
-                            </div>
-                            <div class="col-10">
-                              Photos & Images
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0">
-                            <div class="col-2">
-                              <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
-                                <path
-                                  d="M7 11.5h1v-1H7v1zM19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9.5 8.5c0 .83-.67 1.5-1.5 1.5H7v2H5.5V9H8c.83 0 1.5.67 1.5 1.5v1zm10-1H17v1h1.5V13H17v2h-1.5V9h4v1.5zm-5 3c0 .83-.67 1.5-1.5 1.5h-2.5V9H13c.83 0 1.5.67 1.5 1.5v3zm-2.5 0h1v-3h-1v3z">
-                                </path>
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                              </svg>
-                            </div>
-                            <div class="col-10">
-                              PDFs
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0">
-                            <div class="col-2">
-                              <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
-                                <path
-                                  d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z">
-                                </path>
-                                <path d="M0 0h24v24H0z" fill="none"></path>
-                              </svg>
-                            </div>
-                            <div class="col-10">
-                              Videos
-                            </div>
-                          </li>
-
-                        </ul>
-                      </li>
-
-                      <li class="select-tag ms-2">
-                        <span class="font-16">People</span>
-                        <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
-                        <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
-                          <path d="M7 10l5 5 5-5H7z"></path>
-                        </svg>
-                        <ul class="tag_sub_menu  theme-shadow">
-                          <li class="row hover-menu align-items-center border-search mx-0">
-                            <div class="col-2">
-                              <div class="avatar_wrapper">
-                                <div class="avatar_container">
-                                  <i class="fa-solid fa-magnifying-glass"></i>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-10">
-                              <input type="text" placeholder="Search here ...."
-                                class="form-control font-16 ps-0 search_user">
-                            </div>
-                          </li>
-                          <li class="row hover-menu mx-0 align-items-center mt-1 search_user_container">
-                            <div class="col-2 ps-1">
-                              <div class="avatar_wrapper">
-                                <div class="avatar_container">
-                                  <div class="avatar bg-purple">
-                                    <span class="avatar_initials">T</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-10">
-                              Tanmay Potbhare
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0 align-items-center search_user_container">
-                            <div class="col-2 ps-1">
-                              <div class="avatar_wrapper">
-                                <div class="avatar_container">
-                                  <div class="avatar bg-blue">
-                                    <span class="avatar_initials">A</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-10">
-                              Akash Ramgir
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0 align-items-center search_user_container">
-                            <div class="col-2 ps-1">
-                              <div class="avatar_wrapper">
-                                <div class="avatar_container">
-                                  <div class="avatar bg-green">
-                                    <span class="avatar_initials">A</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-10">
-                              Aditya Pawale
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0 align-items-center search_user_container">
-                            <div class="col-2 ps-1">
-                              <div class="avatar_wrapper">
-                                <div class="avatar_container">
-                                  <div class="avatar bg-purple-dark">
-                                    <span class="avatar_initials">A</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-10">
-                              Arati Dasa
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0 align-items-center search_user_container">
-                            <div class="col-2 ps-1">
-                              <div class="avatar_wrapper">
-                                <div class="avatar_container">
-                                  <div class="avatar bg-red">
-                                    <span class="avatar_initials">J</span>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-10">
-                              Jaishree Godge
-                            </div>
-                          </li>
-
-                        </ul>
-                      </li>
-
-                      <li class="select-tag ms-2">
-                        <span class="font-16">Modified</span>
-                        <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
-                        <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
-                          <path d="M7 10l5 5 5-5H7z"></path>
-                        </svg>
-                        <ul class="tag_sub_menu  theme-shadow">
-                          <li class="row hover-menu mx-0 align-items-center mt-1">
-                            <div class="col-2 ps-1">
-
-                            </div>
-                            <div class="col-10">
-                              Today
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0 align-items-center">
-                            <div class="col-2 ps-1">
-
-                            </div>
-                            <div class="col-10">
-                              Last 7 days
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0 align-items-center">
-                            <div class="col-2 ps-1">
-
-                            </div>
-                            <div class="col-10">
-                              Last 30 days
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0 align-items-center">
-                            <div class="col-2 ps-1">
-                            </div>
-                            <div class="col-10">
-                              This Year (2025)
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0 align-items-center">
-                            <div class="col-2 ps-1">
-                            </div>
-                            <div class="col-10">
-                              Last Year (2024)
-                            </div>
-                          </li>
-
-                          <li class="row hover-menu mx-0 align-items-center">
-                            <div class="col-2 ps-1">
-
-                            </div>
-                            <div class="col-10">
-                              Custom date range
-                            </div>
-                          </li>
-
-                        </ul>
-                      </li>
-                    </ul>
+    </div>
+    <div class="w-100 d-flex justify-content-between align-items-center">
+      <div>
+        <button class="btn-theme hover-light-blue font-15 "><span><i class="fa-solid fa-chevron-down me-2"></i>
+            Suggested files</span></button>
+      </div>
+      <div class="d-flex">
+        <button class="left-radius toggle_list_btn active"><i class="fa-solid fa-bars font-20"></i></button>
+        <button class="right-radius border-start-0 toggle_list_btn"><svg width="18" height="18" viewBox="0 0 14 14"
+            fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M0 1C0 0.447715 0.447715 0 1 0H5C5.55228 0 6 0.447715 6 1V5C6 5.55228 5.55228 6 5 6H1C0.447715 6 0 5.55228 0 5V1ZM2 2H4V4H2V2ZM0 9C0 8.44772 0.447715 8 1 8H5C5.55228 8 6 8.44772 6 9V13C6 13.5523 5.55228 14 5 14H1C0.447715 14 0 13.5523 0 13V9ZM2 10H4V12H2V10ZM9 0C8.44772 0 8 0.447715 8 1V5C8 5.55228 8.44772 6 9 6H13C13.5523 6 14 5.55228 14 5V1C14 0.447715 13.5523 0 13 0H9ZM12 2H10V4H12V2ZM8 9C8 8.44772 8.44772 8 9 8H13C13.5523 8 14 8.44772 14 9V13C14 13.5523 13.5523 14 13 14H9C8.44772 14 8 13.5523 8 13V9ZM10 10H12V12H10V10Z"
+              fill="currentColor"></path>
+          </svg></button>
+      </div>
+    </div>
+    <div id="main_body">
+      <table class="theme-table">
+        <thead>
+          <th>Name</th>
+          <th>Reason Suggested</th>
+          <th>Owner</th>
+          <th>Location</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <i class="fa-solid fa-file-excel theme-green my-3 mx-3 font-18"></i>
+              <span class="font-14 fw-600">file_name.xls</span>
+            </td>
+            <td>
+              <span class="font-14">You uploaded - Jan 08, 2025</span>
+            </td>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="avatar_wrapper">
+                  <div class="avatar_container">
+                    <div class="avatar bg-purple p-0">
+                      <span class="avatar_initials"><i class="fa-solid fa-user font-12 mt-0"></i></span>
+                    </div>
                   </div>
                 </div>
-
-
-              </div>
-              <div class="d-flex justify-content-center">
-                <div class="tags_wrapper mt-3">
-                  <ul class="tag_menu">
-                    <li class="select-tag radius-20">
-                      <span class="font-16"><i class="fa-regular fa-file"></i> Type</span>
-                      <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
-                      <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
-                        <path d="M7 10l5 5 5-5H7z"></path>
-                      </svg>
-                      <ul class="tag_sub_menu  theme-shadow">
-                        <li class="row hover-menu mx-0">
-                          <div class="col-2">
-                            <svg focusable="false" width="24" height="24" viewBox="0 0 24 24" class="theme-gray-img">
-                              <path
-                                d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm0 12H4V8h16v10z">
-                              </path>
-                            </svg>
-                          </div>
-                          <div class="col-10">
-                            Folder
-                          </div>
-                        </li>
-                        <li class="row hover-menu mx-0">
-                          <div class="col-2">
-                            <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-blue-img">
-                              <path d="M0 0h24v24H0z" fill="none"></path>
-                              <path
-                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1.99 6H7V7h10.01v2zm0 4H7v-2h10.01v2zm-3 4H7v-2h7.01v2z">
-                              </path>
-                            </svg>
-                          </div>
-                          <div class="col-10">
-                            Document
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0">
-                          <div class="col-2">
-                            <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-green-img">
-                              <path d="M0 0h24v24H0z" fill="none"></path>
-                              <path
-                                d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 8v11c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 8h-8v8H9v-8H5V9h4V5h2v4h8v2z">
-                              </path>
-                            </svg>
-                          </div>
-                          <div class="col-10">
-                            Spreadsheets
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0">
-                          <div class="col-2">
-                            <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-yellow-img">
-                              <path d="M0 0h24v24H0z" fill="none"></path>
-                              <path
-                                d="M19 3H5c-1.1 0-1.99.9-1.99 2v14c0 1.1.89 2 1.99 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H5V8h14v8z">
-                              </path>
-                            </svg>
-                          </div>
-                          <div class="col-10">
-                            Presentation
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0">
-                          <div class="col-2">
-                            <svg focusable="false" viewBox="0 -960 960 960" height="24" width="24"
-                              class="theme-purple-img">
-                              <path
-                                d="M300-240L700-480L300-720v480Zm80-141V-579l164,99L380-381ZM200-120q-33,0-56.5-23.5T120-200V-760q0-33 23.5-56.5T200-840H760q33,0 56.5,23.5T840-760v560q0,33-23.5,56.5T760-120H200Z">
-                              </path>
-                            </svg>
-                          </div>
-                          <div class="col-10">
-                            Vids
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0">
-                          <div class="col-2">
-                            <svg focusable="false" height="24" viewBox="0 0 24 24" width="24"
-                              class="theme-purple-dark-img">
-                              <path
-                                d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-2h2v2zm0-4H7v-2h2v2zm0-4H7V7h2v2zm8 8h-7v-2h7v2zm0-4h-7v-2h7v2zm0-4h-7V7h7v2z">
-                              </path>
-                              <path d="M0 0h24v24H0z" fill="none"></path>
-                            </svg>
-                          </div>
-                          <div class="col-10">
-                            Forms
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0">
-                          <div class="col-2">
-                            <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
-                              <path d="M0 0h24v24H0z" fill="none"></path>
-                              <path
-                                d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z">
-                              </path>
-                            </svg>
-                          </div>
-                          <div class="col-10">
-                            Photos & Images
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0">
-                          <div class="col-2">
-                            <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
-                              <path
-                                d="M7 11.5h1v-1H7v1zM19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9.5 8.5c0 .83-.67 1.5-1.5 1.5H7v2H5.5V9H8c.83 0 1.5.67 1.5 1.5v1zm10-1H17v1h1.5V13H17v2h-1.5V9h4v1.5zm-5 3c0 .83-.67 1.5-1.5 1.5h-2.5V9H13c.83 0 1.5.67 1.5 1.5v3zm-2.5 0h1v-3h-1v3z">
-                              </path>
-                              <path d="M0 0h24v24H0z" fill="none"></path>
-                            </svg>
-                          </div>
-                          <div class="col-10">
-                            PDFs
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0">
-                          <div class="col-2">
-                            <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-red-img">
-                              <path
-                                d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z">
-                              </path>
-                              <path d="M0 0h24v24H0z" fill="none"></path>
-                            </svg>
-                          </div>
-                          <div class="col-10">
-                            Videos
-                          </div>
-                        </li>
-
-                      </ul>
-                    </li>
-
-                    <li class="select-tag ms-2  radius-20">
-                      <span class="font-16">
-                        <i class="fa-regular fa-user"></i> People
-                      </span>
-                      <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
-                      <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
-                        <path d="M7 10l5 5 5-5H7z"></path>
-                      </svg>
-                      <ul class="tag_sub_menu  theme-shadow">
-                        <li class="row hover-menu align-items-center border-search mx-0">
-                          <div class="col-2">
-                            <div class="avatar_wrapper">
-                              <div class="avatar_container">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-10">
-                            <input type="text" placeholder="Search here ...."
-                              class="form-control font-16 ps-0 search_user">
-                          </div>
-                        </li>
-                        <li class="row hover-menu mx-0 align-items-center mt-1 search_user_container">
-                          <div class="col-2 ps-1">
-                            <div class="avatar_wrapper">
-                              <div class="avatar_container">
-                                <div class="avatar bg-purple">
-                                  <span class="avatar_initials">T</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-10">
-                            Tanmay Potbhare
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0 align-items-center search_user_container">
-                          <div class="col-2 ps-1">
-                            <div class="avatar_wrapper">
-                              <div class="avatar_container">
-                                <div class="avatar bg-blue">
-                                  <span class="avatar_initials">A</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-10">
-                            Akash Ramgir
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0 align-items-center search_user_container">
-                          <div class="col-2 ps-1">
-                            <div class="avatar_wrapper">
-                              <div class="avatar_container">
-                                <div class="avatar bg-green">
-                                  <span class="avatar_initials">A</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-10">
-                            Aditya Pawale
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0 align-items-center search_user_container">
-                          <div class="col-2 ps-1">
-                            <div class="avatar_wrapper">
-                              <div class="avatar_container">
-                                <div class="avatar bg-purple-dark">
-                                  <span class="avatar_initials">A</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-10">
-                            Arati Dasa
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0 align-items-center search_user_container">
-                          <div class="col-2 ps-1">
-                            <div class="avatar_wrapper">
-                              <div class="avatar_container">
-                                <div class="avatar bg-red">
-                                  <span class="avatar_initials">J</span>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-10">
-                            Jaishree Godge
-                          </div>
-                        </li>
-
-                      </ul>
-                    </li>
-
-                    <li class="select-tag ms-2  radius-20">
-                      <span class="font-16"><i class="fa-regular fa-calendar"></i> Modified</span>
-                      <!-- <i class="fa-solid fa-chevron-down font-12 ms-2"></i> -->
-                      <svg width="24" height="24" viewBox="0 0 24 24" focusable="false" class="Q6yead QJZfhe mig17c ">
-                        <path d="M7 10l5 5 5-5H7z"></path>
-                      </svg>
-                      <ul class="tag_sub_menu  theme-shadow">
-                        <li class="row hover-menu mx-0 align-items-center mt-1">
-                          <div class="col-2 ps-1">
-
-                          </div>
-                          <div class="col-10">
-                            Today
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0 align-items-center">
-                          <div class="col-2 ps-1">
-
-                          </div>
-                          <div class="col-10">
-                            Last 7 days
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0 align-items-center">
-                          <div class="col-2 ps-1">
-
-                          </div>
-                          <div class="col-10">
-                            Last 30 days
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0 align-items-center">
-                          <div class="col-2 ps-1">
-                          </div>
-                          <div class="col-10">
-                            This Year (2025)
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0 align-items-center">
-                          <div class="col-2 ps-1">
-                          </div>
-                          <div class="col-10">
-                            Last Year (2024)
-                          </div>
-                        </li>
-
-                        <li class="row hover-menu mx-0 align-items-center">
-                          <div class="col-2 ps-1">
-
-                          </div>
-                          <div class="col-10">
-                            Custom date range
-                          </div>
-                        </li>
-
-                      </ul>
-                    </li>
-                  </ul>
+                <div class="ms-2">
+                  <span class="font-14">me</span>
                 </div>
               </div>
 
-            </div>
-          </div>
-          <div class="w-100 d-flex justify-content-between align-items-center">
-            <div>
-              <button class="btn-theme hover-light-blue font-15 "><span><i class="fa-solid fa-chevron-down me-2"></i>
-                  Suggested files</span></button>
-            </div>
-            <div class="d-flex">
-              <button class="left-radius toggle_list_btn active"><i class="fa-solid fa-bars font-20"></i></button>
-              <button class="right-radius border-start-0 toggle_list_btn"><svg width="18" height="18" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 1C0 0.447715 0.447715 0 1 0H5C5.55228 0 6 0.447715 6 1V5C6 5.55228 5.55228 6 5 6H1C0.447715 6 0 5.55228 0 5V1ZM2 2H4V4H2V2ZM0 9C0 8.44772 0.447715 8 1 8H5C5.55228 8 6 8.44772 6 9V13C6 13.5523 5.55228 14 5 14H1C0.447715 14 0 13.5523 0 13V9ZM2 10H4V12H2V10ZM9 0C8.44772 0 8 0.447715 8 1V5C8 5.55228 8.44772 6 9 6H13C13.5523 6 14 5.55228 14 5V1C14 0.447715 13.5523 0 13 0H9ZM12 2H10V4H12V2ZM8 9C8 8.44772 8.44772 8 9 8H13C13.5523 8 14 8.44772 14 9V13C14 13.5523 13.5523 14 13 14H9C8.44772 14 8 13.5523 8 13V9ZM10 10H12V12H10V10Z" fill="currentColor"></path></svg></button>
-            </div>
-          </div>
-          <div id="main_body">
-              <table class="theme-table">
-                <thead>
-                  <th>Name</th>
-                  <th>Reason Suggested</th>
-                  <th>Owner</th>
-                  <th>Location</th>
-                  <th></th>
-                </thead>
-                <tbody>
-                  <td>
-                    <i class="fa-solid fa-file-excel theme-green my-3 mx-3 font-18"></i>
-                    <span class="font-15 fw-600">file_name.xls</span>
-                  </td>
-                </tbody>
-              </table>
-          </div>
-        </div>
-      </div>
+            </td>
+            <td>
+              <button class="btn table-btn">
+                <i class="fa-brands fa-google-drive me-2"></i> My Drive
+              </button>
+            </td>
+            <td class="text-end">
+
+              <button class="btn action_tbl_btn mx-1 hide_action" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Share">
+                <i class="fa-solid fa-user-plus"></i>
+              </button>
+              <button class="btn action_tbl_btn mx-1 hide_action" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Download">
+                <i class="fa-solid fa-download"></i>
+              </button>
+              <button class="btn action_tbl_btn mx-1 hide_action" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Rename File">
+                <i class="fa-regular fa-pen-to-square"></i>
+              </button>
+              <button class="btn action_tbl_btn mx-1 text-center hide_action" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" title="Add to star">
+                <i class="fa-regular fa-bookmark"></i>
+              </button>
+              <button data-bs-toggle="tooltip" data-bs-placement="bottom" title="More" class="btn action_tbl_btn mx-1">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <i class="fa-solid fa-file-word theme-blue my-3 mx-3 font-18"></i>
+              <span class="font-14 fw-600">doc_file</span>
+            </td>
+            <td>
+              <span class="font-14">You uploaded - Jan 08, 2025</span>
+            </td>
+            <td>
+              <div class="d-flex align-items-center">
+                <div class="avatar_wrapper">
+                  <div class="avatar_container">
+                    <div class="avatar bg-blue p-0">
+                      <span class="avatar_initials">T</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="ms-2">
+                  <span class="font-14">Tanmay</span>
+                </div>
+              </div>
+
+            </td>
+            <td>
+              <button class="btn table-btn">
+                <i class="fa-brands fa-google-drive me-2"></i> My Drive
+              </button>
+            </td>
+            <td class="text-end">
+
+              <button class="btn action_tbl_btn mx-1 hide_action" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Share">
+                <i class="fa-solid fa-user-plus"></i>
+              </button>
+              <button class="btn action_tbl_btn mx-1 hide_action" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Download">
+                <i class="fa-solid fa-download"></i>
+              </button>
+              <button class="btn action_tbl_btn mx-1 hide_action" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="Rename File">
+                <i class="fa-regular fa-pen-to-square"></i>
+              </button>
+              <button class="btn action_tbl_btn mx-1 text-center hide_action" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" title="Add to star">
+                <i class="fa-regular fa-bookmark"></i>
+              </button>
+              <button data-bs-toggle="tooltip" data-bs-placement="bottom" title="More" class="btn action_tbl_btn mx-1">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
     </div>
-  </section>
+  </div>
+</div>
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
-
-  <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
-  <script src="{% static 'assets/js/tags_menu.js' %}"></script>
-
-  <!-- Template Main JS File -->
-  <script src="{% static 'assets/js/main.js' %}"></script>
-  <script>
-    $(document).ready(function (e) {
+<script>
+  $(document).ready(function (e) {
       $('.search_container').on('click', function (e) {
-        e.stopPropagation(); // Prevent the click from propagating to the document
-        $('.drop-containter').removeClass('d-none');
-        $('.search_container').css('background', '#fff');
-        $('.search_container').css('box-shadow', '0px 0px 8px #dddd');
+          e.stopPropagation(); // Prevent the click from propagating to the document
+          $('.drop-containter').removeClass('d-none');
+          $('.search_container').css('background', '#fff');
+          $('.search_container').css('box-shadow', '0px 0px 8px #dddd');
       });
       $(document).on('click', function (e) {
-        if (!$(e.target).closest('.search_container').length) {
-          $('.drop-containter').addClass('d-none');
-        }
+          if (!$(e.target).closest('.search_container').length) {
+              $('.drop-containter').addClass('d-none');
+          }
       });
-    })
-    VirtualSelect.init({
+  })
+  VirtualSelect.init({
       ele: '.multiSelect',
-    });
-  </script>
-</body>
-
-</html>
+  });
+  $(function () {
+      $('[data-bs-toggle="tooltip"]').tooltip()
+  })
+</script>
+{% endblock content %}

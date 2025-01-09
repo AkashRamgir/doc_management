@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from . import views,folders
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,6 +29,7 @@ urlpatterns = [
     path('registration/', views.registration, name='registration'),
     path('submit_form/', views.submit_form, name='submit_form'),
     path('success/', views.success, name='success'),
-    path('retrieve_data/', views.retrieve_data, name='retrieve_data')
+    path('retrieve_data/', views.retrieve_data, name='retrieve_data'),
+    path('create_folder/', folders.create_new_folder, name='create_folder')
 
 ]
