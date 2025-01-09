@@ -74,7 +74,7 @@
 
       <!-- Logo Section -->
       <div class="d-flex align-items-center justify-content-center">
-        <img src="{% static 'assets/img/logos/Shabari-Logo.png' %}" class="logo" alt="Logo">
+        <img src="https://mahashabari.in/images/maha_gov_logo.png" class="logo" alt="Logo">
         <h1 class="cmp-name mb-0  ms-2 text-dark">Drive</h1>
       </div>
 
@@ -88,11 +88,11 @@
               <a href="#" class="nav-link" id="profileDropdown">
                 <img src="/static/assets/img/team/team-2.jpg" alt="Profile Picture" class="profile-img faicon">
               </a>
-              <!-- <ul id="profileMenu" class="dropdown-menu">
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Logout</a></li>
-              </ul> -->
+<!--              <ul id="profileMenu" class="dropdown-menu">-->
+<!--                <li><a href="#">Profile</a></li>-->
+<!--                <li><a href="#">Settings</a></li>-->
+<!--                <li><a href="/">Logout</a></li>-->
+<!--              </ul>-->
             </li>
 
 
@@ -108,6 +108,7 @@
         <div class="sidebar-header py-3 new-btn-container">
           <button class="new-btn"><i class="fa-solid fa-plus"></i> <span class="ms-2 font-15px">New</span></button>
         </div>
+
         <ul class="sidebar-menu">
           <li class="side-link active">
             <div class="side-icon">
@@ -125,8 +126,26 @@
               My Drive
             </div>
           </li>
-
+          {% if user.role == 'Admin' %}
+             <li class="side-link">
+                <div class="side-icon">
+                  <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="side-text">
+                  <a href="/addUser">Add Users</a>
+                </div>
+              </li>
+          {% endif %}
+          <li class="side-link">
+            <div class="side-icon">
+              <i class="fa-solid fa-right-from-bracket"></i>
+            </div>
+            <div class="side-text">
+              <a href="/login">Logout</a>
+            </div>
+          </li>
         </ul>
+
       </div>
       <div class="main theme-dark" id="main">
         <div class="border-0 pt-4 px-4   w-100 main_wrapper">
