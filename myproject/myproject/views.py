@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 import pymongo
 from django.http import HttpResponse, HttpResponseServerError
 import base64
+import bcrypt
+
 
 # Configure MongoDB connection
 client = pymongo.MongoClient('mongodb://127.0.0.1:27017')
@@ -14,14 +16,17 @@ def homepage(request):
 
 
 def index(request):
-    return render(request, "index.html")
+    user = request.session.get('user')  # Retrieve user from session
+    return render(request, 'index.html', {'user': user})
 
 
 def about(request):
     return render(request, "about.html")
 
+
 def login(request):
     return render(request,"login.html")
+
 
 def contact(request):
     return render(request, "contact.html")
@@ -30,27 +35,39 @@ def contact(request):
 def registration(request):
     return render(request, "registration.html")
 
+
 def submit_admin_login(request):
     client = pymongo.MongoClient('mongodb://localhost:27017/')
     db = client['Document_Management']
     collection = db['coll_admin']
-    if request.method == 'POST':
 
+    if request.method == 'POST':
+        role = request.POST.get('role')
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        user = collection.find_one({'username': username, 'password': password})
-        print(user)
-        
-        if user:
-            print("Admin is found")
-            if username == "Admin1" and password == 'Admin@123':
-                return render(request,"index.html",{'user':user})
-            else:
-                return render(request, "login.html")           
+        # Fetch all users that match the role
+        users = list(collection.find({'role': role}))
+        print('Users', users)
+        # Iterate over users and check username and password
+        user_found = None
+        for user in users:
+            if user.get('username') == username:
+                # Check if the entered password matches the hashed password
+                stored_hash = user['password']  # Get the password hash from the database
+                if bcrypt.checkpw(password.encode('utf-8'), stored_hash.encode('utf-8')):
+                    user_found = user
+                    break
+        if user_found:
+            user_found['_id'] = str(user_found['_id'])  # Convert _id to string for JSON compatibility
+            request.session['user'] = user_found
+            print("User logged in:", user_found)
+            return redirect('index')
         else:
-                return render(request, "login.html")
-    return render(request, "login.html")    
+            print("Incorrect username/password or no user found")
+            return redirect('login')
+    return redirect('login')
+
 
 def submit_form(request):
     if request.method == 'POST':
