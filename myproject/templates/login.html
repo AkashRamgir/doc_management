@@ -1,0 +1,53 @@
+<main id="main">
+    <section class="height-50"></section>
+  
+    <div class="container mb-5">
+      <form
+        action="{% url 'submit_admin_login' %}"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        {% csrf_token %}
+        <div class="card shadow-lg col-md-8 m-auto">
+          <div class="card-header bg-primary text-center">
+            <h4 class="card-title text-white">Document Management Login Form</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="First_Name">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    name="username"
+                    placeholder="Enter Username"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Last_Name">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    name="password"
+                    placeholder="Enter Password"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-center">
+            <button type="submit" class="btn btn-primary">Login</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
