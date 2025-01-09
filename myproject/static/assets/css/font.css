@@ -134,6 +134,9 @@ FONT COLOR CSS CODE
 .theme-green{
     color: var(--theme-green) ;
 }
+.theme-red{
+    color: var(--theme-red) ;
+}
 .theme-green-img{
     fill: var(--theme-green) ;
 }

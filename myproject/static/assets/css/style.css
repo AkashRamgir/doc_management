@@ -1654,7 +1654,7 @@ section {
   color:rgb(60,64,67);
 }
 .new-btn{
-  padding: 22px;
+  padding: 18px;
   background: #fff;
   border: none;
   outline: none;
@@ -1722,7 +1722,6 @@ section {
 }
 .search_wrapper{
   margin-top: 15px;
-  height: 48px;
   border-radius: 24px;
   border: 0;
   font-family: var(--font-roboto);
@@ -1781,10 +1780,10 @@ section {
   max-height: 30vh;
   padding-left: 15px;
   padding-bottom: 15px;
+
 }
 #main_header{
-  height: 22vh;
-
+  /* height: 22vh; */
 }
 .drop-containter *{
   z-index: 500;
@@ -1800,10 +1799,39 @@ section {
 }
 .theme-table{
   width: 100%;
+  overflow-x: auto;
+
 }
 .theme-table th{
   font-size: 15px;
   font-weight: 600;
   border-bottom: 1px solid #d7d7d7;
   padding-block: 15px;
+  letter-spacing: 0px;
+  min-width: 25%;
+}
+.theme-table td{
+  padding-block: 5px;
+  border-bottom: 1px solid #d7d7d7;
+}
+.theme-table td *{
+  letter-spacing: 0px;
+}
+.table-btn{
+  padding: 15px 15px 15px 15px;
+  border-radius: 25px;
+  font-size: 15px;
+}
+.table-btn:hover{
+  background: #e8e8e8;
+}
+.theme-table .hide_action{
+  opacity: 0;
+}
+.theme-table tr:hover .hide_action{
+  cursor: pointer;
+  opacity: 1;
+}
+.dropdown-menu{
+  width: 350px;
 }
