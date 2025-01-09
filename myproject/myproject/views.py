@@ -9,13 +9,48 @@ mydb = client['FRA_db']
 collection = mydb.tribal_data
 
 
+def homepage(request):
+    return render(request, "homepage_new.html")
+
+
 def index(request):
     return render(request, "index.html")
+
+
+def about(request):
+    return render(request, "about.html")
+
+def login(request):
+    return render(request,"login.html")
+
+def contact(request):
+    return render(request, "contact.html")
 
 
 def registration(request):
     return render(request, "registration.html")
 
+def submit_admin_login(request):
+    client = pymongo.MongoClient('mongodb://localhost:27017/')
+    db = client['Document_Management']
+    collection = db['coll_admin']
+    if request.method == 'POST':
+
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = collection.find_one({'username': username, 'password': password})
+        print(user)
+        
+        if user:
+            print("Admin is found")
+            if username == "Admin1" and password == 'Admin@123':
+                return render(request,"index.html",{'user':user})
+            else:
+                return render(request, "login.html")           
+        else:
+                return render(request, "login.html")
+    return render(request, "login.html")    
 
 def submit_form(request):
     if request.method == 'POST':
