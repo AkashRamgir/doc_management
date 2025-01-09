@@ -10,7 +10,7 @@ collection = mydb.tribal_data
 
 
 def homepage(request):
-    return render(request, "homepage.html")
+    return render(request, "homepage_new.html")
 
 
 def index(request):
@@ -19,6 +19,10 @@ def index(request):
 
 def about(request):
     return render(request, "about.html")
+
+
+def contact(request):
+    return render(request, "contact.html")
 
 
 def registration(request):
