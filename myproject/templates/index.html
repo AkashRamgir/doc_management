@@ -774,4 +774,24 @@
       $('[data-bs-toggle="tooltip"]').tooltip()
   })
 </script>
+
+<div class="modal folder_modal fade fade-in" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">New Folder</h5>
+      </div>
+      <div class="modal-body">
+        <input type="text" class="theme-input form-control font-13 py-2" value="Untitled folder" name="folder_name" maxlength="25" id="folder_name">
+        <input type="hidden" name="parent_folder_name" id="parent_folder_name" value='{{ request.GET.parent_folder|default:"root" }}'>
+        <input type="hidden" name="user" id="user" value='{{  user_id   }}'>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn font-14 modal_btn fw-500" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn font-14 modal_btn fw-500 create_folder">Create</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock content %}
