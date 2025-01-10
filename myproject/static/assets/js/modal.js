@@ -12,7 +12,7 @@ $(document).ready(function () {
     $('.create_folder').on('click', function(){
         $('.folder_modal').modal('hide')
         var folder_name = $('#folder_name').val();
-        var parent_folder = $('#parent_folder_name').val();
+        var parent_folder = $('#parent_folder_id').val();
         var user_id = $('#user').val();
         if(folder_name == ""){
            alert('Folder Name is blank') 
@@ -26,11 +26,21 @@ $(document).ready(function () {
                 "X-CSRFToken": $('meta[name="csrf-token"]').attr('content'),
             },
             success:function(html){
-
+                $('.toast').toast('show')
             }
         })
     })
     $('.folder_modal').on('hidden.bs.modal', function(){
         $('.folder_modal').find('#folder_name').val('Untitled folder')
     })
+
+    $('.modal-show').on('click', function(){
+        $('.toast').css('bottom', '0');
+        
+    })
+    // Modal for Update User
+    $('.update_user').on('click', function () {
+        $('#updateUserModal').modal('show')
+    })
+
 }) 
