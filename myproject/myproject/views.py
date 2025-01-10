@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 import pymongo
-from django.http import HttpResponse, HttpResponseServerError
+from django.http import HttpResponse, HttpResponseServerError, JsonResponse
 import base64
 import bcrypt
 
@@ -16,8 +16,9 @@ def homepage(request):
 
 
 def index(request):
+    
     user = request.session.get('user')  # Retrieve user from session
-    return render(request, 'index.html', {'user': user})
+    return render(request, 'index.html', {'user': user, 'user_id': user['_id']})
 
 
 def about(request):

@@ -783,8 +783,8 @@
       </div>
       <div class="modal-body">
         <input type="text" class="theme-input form-control font-13 py-2" value="Untitled folder" name="folder_name" maxlength="25" id="folder_name">
-        <input type="hidden" name="parent_folder_name" id="parent_folder_name" value='{{ request.GET.param|default:"root" }}'>
-        <input type="hidden" name="user" id="user" value='{{ user_id }}'>
+        <input type="hidden" name="parent_folder_name" id="parent_folder_name" value='{{ request.GET.parent_folder|default:"root" }}'>
+        <input type="hidden" name="user" id="user" value='{{  user_id   }}'>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn font-14 modal_btn fw-500" data-bs-dismiss="modal">Cancel</button>
