@@ -33,5 +33,6 @@ urlpatterns = [
     path('create_folder/', folders.create_new_folder, name='create_folder'),
 
     # Add User Functionality in Admin
-    path('add_users/', add_users.add_users, name='add_users')
+    path('add_users/', add_users.add_users, name='add_users'),
+    path('update_user/<str:user_id>/', add_users.update_user, name='update_user')
 ]
