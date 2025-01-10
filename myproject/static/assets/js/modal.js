@@ -38,4 +38,9 @@ $(document).ready(function () {
         $('.toast').css('bottom', '0');
         
     })
+    // Modal for Update User
+    $('.update_user').on('click', function () {
+        $('#updateUserModal').modal('show')
+    })
+
 }) 
