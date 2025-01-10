@@ -11,4 +11,9 @@ collection = db['coll_admin']
 
 def add_users(request):
     users = list(collection.find({'role': 'User'}))  # Fetch users with role 'User'
-    return render(request, "add_users.html", {'user_role': users})
+    user = request.session.get('user')
+    # user_id= 
+    return render(request, "add_users.html", {'user_role': users, 'user_id': user['_id']})
+
+def update_user(request, user_id):
+    return HttpResponse( user_id)
