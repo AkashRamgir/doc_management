@@ -33,4 +33,9 @@ $(document).ready(function () {
     $('.folder_modal').on('hidden.bs.modal', function(){
         $('.folder_modal').find('#folder_name').val('Untitled folder')
     })
+    // Modal for Update User
+    $('.update_user').on('click', function () {
+        $('#updateUserModal').modal('show')
+    })
+
 }) 
