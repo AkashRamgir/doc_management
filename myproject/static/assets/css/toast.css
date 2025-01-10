@@ -1,0 +1,34 @@
+.toast{
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+    border:0px;
+    box-shadow: 0 0 20px #dddd;
+    border-radius: 0 0 0 0;
+    background: transparent;
+    transition: 500ms all ease-in-out;
+}
+.toast-header{
+    background: #d7d7d7;
+    border-bottom: 0px;
+    border-radius: 10px 10px 0 0;
+}
+
+.toast-body{
+    background: #fff;
+}
+.toast-body .icon{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+.toast-body .icon i{
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+}
