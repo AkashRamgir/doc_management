@@ -6,10 +6,18 @@
                 <i class="fa-solid fa-plus font-14"></i> <span class="ms-2 font-14">New</span>
             </button>
             <div class="dropdown-menu">
-                <a class="dropdown-item new_folder_modal" ><i class="fa-solid fa-folder-plus mx-2 "></i> New Folder</a>
+                <!-- New Folder Option -->
+                <a class="dropdown-item new_folder_modal">
+                    <i class="fa-solid fa-folder-plus mx-2"></i> New Folder
+                </a>
                 <div class="dropdown-divider"></div>
-                <label id="file_upload" class="dropdown-item"><i class="fa-solid fa-file-circle-plus mx-2"></i> File Upload <input type="file" id="file_upload" class="d-none"></label>
+                <!-- File Upload Option -->
+                <label class="dropdown-item">
+                    <i class="fa-solid fa-file-circle-plus mx-2"></i> File Upload
+                    <input type="file" class="d-none" id="fileUploadInput" onchange="handleFileUpload(this)">
+                </label>
                 <div class="dropdown-divider"></div>
+                <!-- Additional Options -->
                 <a class="dropdown-item" href="#">
                     <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-blue-img me-2">
                         <path d="M0 0h24v24H0z" fill="none"></path>
@@ -45,17 +53,13 @@
             <div class="side-icon">
                 <i class="fa-solid fa-house-chimney"></i>
             </div>
-            <div class="side-text font-14">
-                Home
-            </div>
+            <div class="side-text font-14">Home</div>
         </li>
         <li class="side-link">
             <div class="side-icon">
                 <i class="fa-brands fa-google-drive"></i>
             </div>
-            <div class="side-text font-14">
-                My Drive
-            </div>
+            <div class="side-text font-14">My Drive</div>
         </li>
         {% if user.role == 'Admin' %}
         <li class="side-link">
