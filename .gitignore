@@ -1,0 +1,12 @@
+# Ignore Python bytecode files
+*.py[cod]
+
+# Ignore __pycache__ directories
+__pycache__/
+system/
+
+# Ignore environment-specific files
+*.venv
+session.json
+uploads
+ 

@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views, folders, users
+from django.urls import path
+from . import files
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,5 +37,6 @@ urlpatterns = [
     # Add User Functionality in Admin
     path('users/', users.add_users, name='add_users'),
     path('save_users/', users.save_users, name='save_users'),
-    path('update_user/<str:user_id>/', users.update_user, name='update_user')
+    path('update_user/<str:user_id>/', users.update_user, name='update_user'),
+    path('upload_file/', files.upload_file, name='upload_file'),
 ]

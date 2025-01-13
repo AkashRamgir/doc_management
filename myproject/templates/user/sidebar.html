@@ -14,7 +14,12 @@
                 <!-- File Upload Option -->
                 <label class="dropdown-item">
                     <i class="fa-solid fa-file-circle-plus mx-2"></i> File Upload
-                    <input type="file" class="d-none" id="fileUploadInput" onchange="handleFileUpload(this)">
+                    <form method="POST" enctype="multipart/form-data" action="/upload_file/" id="fileUpload">
+                        {% csrf_token %}
+                        <input type="file" name="file" id="fileUploadInput" class="d-none" onchange="handleFileUpload()">
+                        <input type="hidden" name="parent_folder_id_file" id="parent_folder_id_file" value='{{ request.GET.parent_folder|default:"0" }}'>
+                        <input type="hidden" name="user_id_file" id="user_id_file" value='{{ user_id }}'>
+                    </form>
                 </label>
                 <div class="dropdown-divider"></div>
                 <!-- Additional Options -->
@@ -48,6 +53,16 @@
             </div>
         </div>
     </div>
+
+    <!-- Success or Error Message Alert (placed below "Welcome Drive" section) -->
+    {% if request.GET.message %}
+        <!-- Success Alert Box -->
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ request.GET.message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+
     <ul class="sidebar-menu">
         <li class="side-link active">
             <div class="side-icon">
