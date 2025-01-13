@@ -18,9 +18,17 @@ def homepage(request):
 def index(request):
     
     user = request.session.get('user')  # Retrieve user from session
+    parent_folder_id =request.GET.get('parent_folder')
+    if not user:
+        return redirect('/')
+
     user_id = str (user['_id'])  # Convert user ID to string if necessary
-    all_files = list(file_collection.find({'user_id':  user_id,'is_folder':'yes'}))  # Query files for the user
-    return render(request, 'index.html', {'user': user, 'user_id': user['_id']})
+    all_folders = list(file_collection.find({'user_id':  user_id,'is_folder':'yes'}))  # Query files for the user
+    all_files = list(file_collection.find({'user_id':  user_id,'is_folder':'no'}))  # Query files for the user
+
+
+    # Return files as JSON response or render the template
+    return render(request, 'index.html', {'user': user, 'user_id': user_id, 'folders': all_folders, 'files':all_files })
 
 
 def about(request):
