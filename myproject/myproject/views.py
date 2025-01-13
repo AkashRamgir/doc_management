@@ -14,9 +14,13 @@ collection = mydb.tribal_data
 def homepage(request):
     return render(request, "homepage_new.html")
 
-
 def index(request):
     
+    client = pymongo.MongoClient('mongodb://localhost:27017/')
+    db = client['Document_Management']
+    user = request.session.get('user')  # Retrieve user from session
+    parent_folder_id =request.GET.get('parent_folder')
+    file_collection = db['coll_all_files']
     user = request.session.get('user')  # Retrieve user from session
     parent_folder_id =request.GET.get('parent_folder')
     if not user:
