@@ -1,6 +1,28 @@
 
 $(document).ready(function () {  
 
+        $(document).ready(function () {
+            $('#password').on('change', function () {
+                const password = $(this).val(); // Get the password value
+                const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
+        
+                if (!passwordRegex.test(password)) {
+                    // Display the error message
+                    $('#passwordError').text(
+                        "Password must contain:\n" +
+                        "- At least one uppercase letter\n" +
+                        "- At least one lowercase letter\n" +
+                        "- At least one number\n" +
+                        "- At least one special character (@$!%*?&)\n" +
+                        "- Be 8-16 characters long."
+                    ).show();
+                } else {
+                    // Hide the error message
+                    $('#passwordError').hide();
+                }
+            });
+        });
+
         $('#addUserForm').on('submit', function (e) {
             e.preventDefault(); // Prevent the default form submission
             let email = $('#email').val();
