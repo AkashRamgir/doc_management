@@ -618,9 +618,19 @@
 
       </div>
     </div>
-    <div class="w-100 d-flex justify-content-between align-items-center">
+    <div>
       <div>
-        <button class="btn-theme hover-light-blue font-15  modal-show"><span><i class="fa-solid fa-chevron-down me-2"></i>
+        <button class="btn-theme hover-light-blue font-15  modal-show"><span><i
+              class="fa-solid fa-chevron-down me-2"></i>
+            Suggested folders</span></button>
+      </div>
+      <div class="py-3"></div>
+    </div>
+    <div class="w-100 d-flex justify-content-between align-items-center mx-0">
+
+      <div>
+        <button class="btn-theme hover-light-blue font-15  modal-show"><span><i
+              class="fa-solid fa-chevron-down me-2"></i>
             Suggested files</span></button>
       </div>
       <div class="d-flex">
@@ -643,6 +653,11 @@
           <th></th>
         </thead>
         <tbody>
+          {% if not files %}
+          <tr>
+            <td colspan="5" class="text-center font-14">No data Found</td>
+          </tr>
+          {% endif %}
           {% for row in files %}
           <tr>
             <td>
@@ -757,23 +772,23 @@
 
 <script>
   $(document).ready(function (e) {
-      $('.search_container').on('click', function (e) {
-          e.stopPropagation(); // Prevent the click from propagating to the document
-          $('.drop-containter').removeClass('d-none');
-          $('.search_container').css('background', '#fff');
-          $('.search_container').css('box-shadow', '0px 0px 8px #dddd');
-      });
-      $(document).on('click', function (e) {
-          if (!$(e.target).closest('.search_container').length) {
-              $('.drop-containter').addClass('d-none');
-          }
-      });
+    $('.search_container').on('click', function (e) {
+      e.stopPropagation(); // Prevent the click from propagating to the document
+      $('.drop-containter').removeClass('d-none');
+      $('.search_container').css('background', '#fff');
+      $('.search_container').css('box-shadow', '0px 0px 8px #dddd');
+    });
+    $(document).on('click', function (e) {
+      if (!$(e.target).closest('.search_container').length) {
+        $('.drop-containter').addClass('d-none');
+      }
+    });
   })
   VirtualSelect.init({
-      ele: '.multiSelect',
+    ele: '.multiSelect',
   });
   $(function () {
-      $('[data-bs-toggle="tooltip"]').tooltip()
+    $('[data-bs-toggle="tooltip"]').tooltip()
   })
 </script>
 
