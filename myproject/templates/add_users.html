@@ -66,15 +66,15 @@
               </td>
               <!----------------CRUD Action Icons -------------->
               <td>
-                <a class="btn btn-primary btn-sm update_user" title="Update User">
+                <a class="btn btn-primary btn-sm update_user" title="Update User" data-user-id="{{ user.id }}">
                   <i class="fa-solid fa-edit"></i>
                 </a>
-                <a class="btn btn-primary btn-sm" title="Delete User" onclick="return confirm('Are you sure you want to delete this user?')">
+                <a class="btn btn-primary btn-sm" title="Delete User" data-user-id="{{ user.id }}"  >
                   <i class="fa-solid fa-trash"></i>
                 </a>
-                <a class="btn btn-info btn-sm" title="View User">
+                <!-- <a class="btn btn-info btn-sm" title="View User">
                   <i class="fa-solid fa-eye"></i>
-                </a>
+                </a> -->
               </td>
             </tr>
             {% endfor %} {% else %}
@@ -109,7 +109,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="email" name="email" required>
+                  <input type="email" class="form-control" id="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  required>
                 </div>
                 <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
@@ -118,11 +118,13 @@
                 <div class="mb-3">
                   <label for="password" class="form-label">Password</label>
                   <input type="password" class="form-control" id="password" name="password" required>
+                   <!-- Error message container -->
+                  <span id="passwordError" style="color: red; display: none;"></span>
                 </div>                  
                  <!-- File upload field for profile photo -->
                 <div class="mb-3">
                   <label for="profilePhoto" class="form-label">Profile Photo</label>
-                  <input type="file" class="form-control" id="profilePhoto" name="profile_photo" accept="image/*">
+                  <input type="file" class="form-control" id="profilePhoto" name="profile_photo" accept="image/*" required>
               </div>
               <button type="submit" class="btn btn-primary">Add</button>
             </form>
@@ -143,8 +145,8 @@
       </div>
       <div class="modal-body">
         <form id="updateUserForm" method="post">
-          {% csrf_token %}
-          <input type="hidden" id="userId" name="user_id" value="">
+          {% csrf_token %}   
+          <input type="hidden" id="userId" name="user_id" value="{{ user.id }}">
           <div class="mb-3">
             <label for="role" class="form-label">Role</label>
             <select class="form-select" id="role" name="role" required>         
@@ -153,16 +155,12 @@
           </div>
           <div class="mb-3">
             <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" required>
+            <input type="text" class="form-control" id="username" name="username"  required>
           </div>
           <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" required>
-          </div>          
+            <input type="email" class="form-control" id="email" name="email"  required>
+          </div>                
 
           <button type="submit" class="btn btn-primary">Update</button>
         </form>
