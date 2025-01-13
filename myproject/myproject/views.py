@@ -3,7 +3,6 @@ import pymongo
 from django.http import HttpResponse, HttpResponseServerError, JsonResponse
 import base64
 import bcrypt
-from bson.objectid import ObjectId
 
 
 # Configure MongoDB connection
@@ -15,22 +14,25 @@ collection = mydb.tribal_data
 def homepage(request):
     return render(request, "homepage_new.html")
 
-
 def index(request):
+    
     client = pymongo.MongoClient('mongodb://localhost:27017/')
     db = client['Document_Management']
+    user = request.session.get('user')  # Retrieve user from session
+    parent_folder_id =request.GET.get('parent_folder')
     file_collection = db['coll_all_files']
     user = request.session.get('user')  # Retrieve user from session
     parent_folder_id =request.GET.get('parent_folder')
     if not user:
-        return redirect('')
+        return redirect('/')
 
     user_id = str (user['_id'])  # Convert user ID to string if necessary
     all_folders = list(file_collection.find({'user_id':  user_id,'is_folder':'yes'}))  # Query files for the user
+    all_files = list(file_collection.find({'user_id':  user_id,'is_folder':'no'}))  # Query files for the user
 
 
     # Return files as JSON response or render the template
-    return render(request, 'index.html', {'user': user, 'user_id': user_id, 'files': all_folders})
+    return render(request, 'index.html', {'user': user, 'user_id': user_id, 'folders': all_folders, 'files':all_files })
 
 
 def about(request):
