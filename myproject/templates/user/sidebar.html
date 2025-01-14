@@ -13,8 +13,13 @@
                 <div class="dropdown-divider"></div>
                 <!-- File Upload Option -->
                 <label class="dropdown-item">
-                    <i class="fa-solid fa-file-circle-plus mx-2"></i> File Upload
-                    <input type="file" class="d-none" id="fileUploadInput" onchange="handleFileUpload(this)">
+                    <i class="fa-solid fa-file-circle-plus mx-2"></i> File upload
+                    <form method="POST" enctype="multipart/form-data" action="/upload_file/" id="fileUpload">
+                        {% csrf_token %}
+                        <input type="file" name="file" id="fileUploadInput" class="d-none" onChange="handleFileUpload()">
+                        <input type="hidden" name="parent_folder_id_file" id="parent_folder_id_file" value='{{ request.GET.parent_folder|default:"0" }}'>
+                        <input type="hidden" name="user_id_file" id="user_id_file" value='{{ user_id }}'>
+                    </form>
                 </label>
                 <div class="dropdown-divider"></div>
                 <!-- Additional Options -->
