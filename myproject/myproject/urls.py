@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views, folders, users
+from django.urls import path
+from . import files
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -38,4 +40,5 @@ urlpatterns = [
     path('get_user/', users.get_user, name='get_user'),
     path('update_user/', users.update_user, name='update_user'),
     path('delete_user/', users.delete_user, name='delete_user'),
+    path('upload_file/', files.upload_file, name='upload_file'),
 ]

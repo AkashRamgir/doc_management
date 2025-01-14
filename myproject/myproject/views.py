@@ -3,6 +3,7 @@ import pymongo
 from django.http import HttpResponse, HttpResponseServerError, JsonResponse
 import base64
 import bcrypt
+from django.shortcuts import redirect
 
 
 # Configure MongoDB connection
@@ -149,6 +150,11 @@ def submit_form(request):
             return HttpResponse(f"Error: {str(e)}")
 
     return render(request, 'index.html')
+
+def upload_file(request):
+    # After successful file upload logic
+    success_message = "File uploaded successfully!"
+    return redirect('/index/?message=' + success_message)
 
 
 def success(request):

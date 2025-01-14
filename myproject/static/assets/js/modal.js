@@ -38,7 +38,8 @@ $(document).ready(function () {
         $('.toast').css('bottom', '0');
         
     })
-
-  
-
 }) 
+// Modal for Update Folder
+function handleFileUpload(){
+    $('#fileUpload').submit()
+}
