@@ -108,6 +108,10 @@
                   </select>
                 </div>
                 <div class="mb-3">
+                  <label for="full_name" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="full_name" name="full_name" pattern="[A-Za-z\s]+" required>
+                </div>
+                <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input type="email" class="form-control" id="email" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  required>
                 </div>
@@ -154,12 +158,16 @@
             </select>
           </div>
           <div class="mb-3">
+            <label for="full_name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="full_name" name="full_name" pattern="[A-Za-z\s]+" required title="Full name should contain only letters and spaces">
+          </div>
+          <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username"  required>
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email"  required>
+            <label for="email" class="form-label">Email</label> 
+            <input type="email" class="form-control" id="email" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"  required>
           </div>                
 
           <button type="submit" class="btn btn-primary">Update</button>

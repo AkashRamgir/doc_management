@@ -57,6 +57,38 @@ $(document).ready(function () {
             });
         });
 
+        // On click of Update button get the user data:
+          // Modal for Update User 
+        $('.update_user').on('click', function () { 
+            const userId = $(this).data('user-id');
+            if (userId) {
+                $.ajax({
+                    url:"/get_user/",
+                    type:"POST",
+                    data:{userId : userId},
+                    headers: {
+                        "X-CSRFToken": $('meta[name="csrf-token"]').attr('content'),
+                    },
+                    success:function(data){
+                        console.log(full_name);
+                        // Populate form fields with the received data
+                        $('#updateUserForm #userId').val(data.id);
+                        $('#updateUserForm #full_name').val(data.fullname);
+                        $('#updateUserForm #username').val(data.username);
+                        $('#updateUserForm #email').val(data.email);
+                        $('#updateUserForm #role').val(data.role);
+                        $('#updateUserModal').modal('show');                  
+                    },
+                    error: function (xhr, status, error) {
+                        console.error("Failed to fetch user data:", error);
+                    }
+                })        
+            } else {
+                console.error("User ID is undefined!");
+            }
+        });
+
+
         $('#updateUserForm').on('submit', function (e) {
             e.preventDefault(); // Prevent the default form submission
            
