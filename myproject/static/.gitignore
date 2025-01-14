@@ -1,0 +1,15 @@
+
+# Ignore Python bytecode files
+*.py[cod]
+
+# Ignore __pycache__ directories
+__pycache__/
+myproject/myproject/__pycache__/
+system/
+error_logs/
+myproject/static/uploads/
+
+
+# Ignore environment-specific files
+*.venv
+session.json
