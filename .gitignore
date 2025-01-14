@@ -5,6 +5,8 @@
 __pycache__/
 myproject/myproject/__pycache__/
 system/
+**/__pycache__/
+
 
 # Ignore environment-specific files
 *.venv
