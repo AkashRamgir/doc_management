@@ -41,6 +41,5 @@ $(document).ready(function () {
 }) 
 // Modal for Update Folder
 function handleFileUpload(){
-    alert('File Upload')
     $('#fileUpload').submit()
 }
