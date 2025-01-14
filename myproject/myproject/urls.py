@@ -43,6 +43,6 @@ urlpatterns = [
     
 
     path('permission_denied/', views.permission_denied, name='permission_denied'),
-    path('logout/', views.logout, name='logout'),
+    path('logout/', views.logout, name='logout')
     #  path('login_required/', views.login_required, name='login_required')
 ]
