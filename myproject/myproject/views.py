@@ -48,6 +48,12 @@ def about(request):
 def login(request):
     return render(request,"login.html")
 
+def logout(request):
+    # Clear the user session to log out
+    request.session.flush()      
+    # Redirect to login page after logout
+    return redirect('login')
+
 
 def contact(request):
     return render(request, "contact.html")
@@ -89,6 +95,8 @@ def submit_admin_login(request):
             return redirect('login')
     return redirect('login')
 
+def permission_denied(request):
+    return HttpResponse("Permission Denied: You do not have access to this page.", status=403)
 
 def submit_form(request):
     if request.method == 'POST':
