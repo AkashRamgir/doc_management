@@ -22,8 +22,10 @@
                     </form>
                 </label>
                 <div class="dropdown-divider"></div>
-                <!-- Additional Options -->
-                <a class="dropdown-item" href="#">
+
+                <!---------------------------------------------- Additional Options  -------------------------------------------------------->
+                <!-- Doc File Option -->
+                <a class="dropdown-item" href="#" id="docFileButton">
                     <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-blue-img me-2">
                         <path d="M0 0h24v24H0z" fill="none"></path>
                         <path
@@ -32,6 +34,18 @@
                     </svg>
                     Doc File
                 </a>
+
+                <!-- Form to upload doc files -->
+                <form action="/upload_file/" method="POST" enctype="multipart/form-data" id="docUploadForm">
+                    {% csrf_token %}
+                    <label for="docFileInput" class="d-none">Select Doc File:</label>
+                    <!-- Hidden file input for uploading doc files -->
+                    <input type="file" id="docFileInput" name="file" accept=".doc, .docx" class="d-none" onchange="handleFileUploadByType('doc', 'docUploadForm')">
+                    <input type="hidden" name="parent_folder_id_file" id="doc_parent_folder_id_file" value='{{ request.GET.parent_folder|default:"0" }}'>
+                        <input type="hidden" name="user_id_file" id="fileDoc" value='{{ user_id }}'>
+                    <input type="submit" class="d-none" id="submitBtn">
+                </form>
+                <!---------------------------------------------- Only Excel File Should Upload ----------------------------------------------------------------------------------->
                 <a class="dropdown-item" href="#">
                     <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-green-img me-2">
                         <path d="M0 0h24v24H0z" fill="none"></path>
@@ -41,6 +55,7 @@
                     </svg>
                     Excel File
                 </a>
+                <!---------------------------------------------- Only Video File Should upload --------------------------------------------------------------------->
                 <a class="dropdown-item" href="#">
                     <svg focusable="false" viewBox="0 -960 960 960" height="24" width="24"
                         class="theme-purple-img me-2">
@@ -53,6 +68,7 @@
             </div>
         </div>
     </div>
+    <!---------------------------------------------- Another Section of the Sidebar Menue ----------------------------------------------------------------------------------->
     <ul class="sidebar-menu">
         <li class="side-link active">
             <div class="side-icon">
@@ -86,3 +102,17 @@
         </li>
     </ul>
 </div>
+
+<script>
+    // Attach event listener to Doc File button
+    document.getElementById("docFileButton").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the default behavior of the link
+        var fileInput = document.getElementById("docFileInput");
+        fileInput.click(); // Trigger the file input click to open the file dialog
+    });
+
+    // Handle file selection and validation
+    function handleFileUploadByType( type, id) {
+        $('#'+id).submit();
+    }
+</script>
