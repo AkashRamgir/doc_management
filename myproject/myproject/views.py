@@ -20,15 +20,21 @@ def index(request):
     db = client['Document_Management']
     user = request.session.get('user')  # Retrieve user from session
     parent_folder_id =request.GET.get('parent_folder')
+    if parent_folder_id:
+        parent_folder_id =request.GET.get('parent_folder')
+    else:
+        parent_folder_id ="0"
     file_collection = db['coll_all_files']
-    user = request.session.get('user')  # Retrieve user from session
-    parent_folder_id =request.GET.get('parent_folder')
     if not user:
         return redirect('/')
 
     user_id = str (user['_id'])  # Convert user ID to string if necessary
-    all_folders = list(file_collection.find({'user_id':  user_id,'is_folder':'yes'}))  # Query files for the user
-    all_files = list(file_collection.find({'user_id':  user_id,'is_folder':'no'}))  # Query files for the user
+    all_folders = list(file_collection.find({'user_id':  user_id,'is_folder':'yes','parent_folder_id':parent_folder_id}))  # Query files for the user
+    
+    # Replace _id with Id
+    for folder in all_folders:
+        folder['id'] = str(folder.pop('_id'))
+    all_files = list(file_collection.find({'user_id':  user_id,'is_folder':'no','parent_folder_id':parent_folder_id}))  # Query files for the user
 
 
     # Return files as JSON response or render the template
