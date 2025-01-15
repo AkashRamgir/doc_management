@@ -8,33 +8,51 @@ from django.core.files.storage import FileSystemStorage
 from datetime import datetime
 import pymongo
 from bson import ObjectId
+import mimetypes
 
 # Configure MongoDB connection
 client = pymongo.MongoClient('mongodb://127.0.0.1:27017')
 db = client['Document_Management']
 coll_all_files = db['coll_all_files']
 
-# Allowed file types for upload (to restrict unwanted file types like .exe, .bat, etc.)
-ALLOWED_FILE_TYPES = ['pdf', 'jpeg', 'jpg', 'png', 'docx', 'xlsx']
+# Allowed file types for upload (include image, video, document, zip files)
+ALLOWED_FILE_TYPES = [
+    '.pdf', '.jpeg', '.jpg', '.png', '.gif',  # Image files
+    '.docx', '.xlsx', '.pptx', '.txt',  # Document files
+    '.mp4', '.avi', '.mov', '.mkv', '.flv', '.webm',  # Video files
+    '.zip', '.rar', '.tar', '.gz',  # Archive files
+]
 
-# Not allowed file types (these will be restricted)
-DISALLOWED_FILE_TYPES = ['exe', 'son', 'bat']
+# Not allowed file types (these will be restricted for security)
+DISALLOWED_FILE_TYPES = ['.exe', '.bat', '.cmd', '.msi', '.js', '.vbs', '.son', '.sh']
+
+# Max file size (in bytes) - for example, 2 GB 2,147,483,648 bytes
+MAX_FILE_SIZE = 2 * 1024 * 1024 * 1024  # 2 GB
 
 def upload_file(request):
     if request.method == 'POST' and request.FILES.get('file'):
         uploaded_file = request.FILES['file']
         file_name = uploaded_file.name
         file_size = uploaded_file.size
-        
-        # Extract file extension
-        file_extension = uploaded_file.name.split('.')[-1].lower()  # Get the file extension (e.g., pdf, jpeg)
+
+        # File size validation
+        if file_size > MAX_FILE_SIZE:
+            return redirect(reverse('index') + '?message=File%20size%20exceeds%20the%20maximum%20limit%20of%2010MB.')
+
+        # Extract file extension and convert it to lowercase to ensure consistent comparison
+        file_extension = os.path.splitext(file_name)[1].lower()  # Get the file extension (e.g., .pdf, .jpeg)
 
         # Check if file extension is in the allowed types list
-        if file_extension not in ALLOWED_FILE_TYPES:
+        if file_extension not in ALLOWED_FILE_TYPES:  # Compare file extension directly
             # Check if the file is in the disallowed list
             if file_extension in DISALLOWED_FILE_TYPES:
-                return redirect(reverse('index') + '?message=File%20type%20not%20allowed%20(safe%20restriction)%20-%20'.format(file_extension))
+                return redirect(reverse('index') + '?message=File%20type%20not%20allowed%20(safe%20restriction)%20-%20{}'.format(file_extension))
             return redirect(reverse('index') + '?message=File%20type%20not%20supported.%20Please%20convert%20it%20to%20a%20compatible%20format.')
+
+        # Check file MIME type for additional security (optional, especially for images)
+        mime_type, encoding = mimetypes.guess_type(file_name)
+        if mime_type is None or not mime_type.startswith(('image', 'application', 'video')):
+            return redirect(reverse('index') + '?message=Unable%20to%20determine%20the%20file%20type.%20Please%20ensure%20it%20is%20valid.')
 
         # Get additional form data (e.g., user_id, parent_folder)
         user_id = request.POST.get('user_id_file')  # Get user_id from the POST data
@@ -44,7 +62,7 @@ def upload_file(request):
         upload_directory_base = os.path.join(settings.BASE_DIR, 'static', 'uploads')
 
         # Create a subdirectory based on file type (e.g., pdf, jpeg, docx)
-        upload_directory = os.path.join(upload_directory_base, file_extension)
+        upload_directory = os.path.join(upload_directory_base, file_extension.lstrip('.'))  # remove dot for folder name
         
         # Ensure the directory exists
         os.makedirs(upload_directory, exist_ok=True)
@@ -56,14 +74,14 @@ def upload_file(request):
         current_time = datetime.now().strftime("%H%M%S")  # Current time in HHMMSS format
 
         # Create the new file name
-        new_file_name = f"{user_id_last_digits}{random_number}{current_date}{current_time}.{file_extension}"
+        new_file_name = f"{user_id_last_digits}{random_number}{current_date}{current_time}{file_extension}"
 
         # Handle file storage (using FileSystemStorage to save files locally)
         fs = FileSystemStorage(location=upload_directory)
         filename = fs.save(new_file_name, uploaded_file)
         
         # Construct the file URL relative to the static directory
-        file_url = os.path.join('static', 'uploads', file_extension, filename)
+        file_url = os.path.join('static', 'uploads', file_extension.lstrip('.'), filename)
 
         # Get current datetime for creation and modification
         current_date_time = datetime.now()

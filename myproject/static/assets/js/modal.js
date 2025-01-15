@@ -8,7 +8,7 @@ $(document).ready(function () {
         }else{
             $('.create_folder').prop('disabled', false)
         }
-    } )
+    })
     $('.create_folder').on('click', function(){
         $('.folder_modal').modal('hide')
         var folder_name = $('#folder_name').val();
@@ -21,7 +21,7 @@ $(document).ready(function () {
         $.ajax({
             url:"/create_folder/",
             type:"POST",
-            data:{folder_name : folder_name, parent_folder: parent_folder,user_id:user_id},
+            data:{folder_name : folder_name, parent_folder: parent_folder, user_id: user_id},
             headers: {
                 "X-CSRFToken": $('meta[name="csrf-token"]').attr('content'),
             },
@@ -36,7 +36,6 @@ $(document).ready(function () {
 
     $('.modal-show').on('click', function(){
         $('.toast').css('bottom', '0');
-        
     })
 })
 
@@ -53,12 +52,35 @@ $('#fileUpload').on('submit', function (e) {
     var fileInput = $('#fileUpload input[type="file"]')[0];
     var file = fileInput.files[0];
 
-    // Define the allowed file types (you can modify this array with your supported types)
-    var allowedTypes = ['image/jpeg', 'image/png', 'application/pdf', 'application/msword'];
+    console.log('File Selected:', file);
+    console.log('File Type:', file.type);
+
+    // Define the allowed file types (matching with the ALLOWED_FILE_TYPES in files.py)
+    var allowedTypes = [
+        'application/pdf',   // .pdf files
+        'image/jpeg',         // .jpeg, .jpg files
+        'image/png',          // .png files
+        'image/gif',          // .gif files
+        'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // .docx files
+        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',    // .xlsx files
+        'application/vnd.openxmlformats-officedocument.presentationml.presentation', // .pptx files
+        'text/plain',         // .txt files
+        'video/mp4',          // .mp4 files
+        'video/avi',          // .avi files
+        'video/quicktime',    // .mov files
+        'video/x-matroska',   // .mkv files
+        'video/x-flv',        // .flv files
+        'video/webm',         // .webm files
+        'application/zip',    // .zip files
+        'application/x-zip-compressed', // .zip files (alternate MIME type)
+        'application/x-rar-compressed', // .rar files
+        'application/x-tar',  // .tar files
+        'application/gzip'    // .gz files
+    ];
 
     // Check if the file type is allowed
     if (file && allowedTypes.indexOf(file.type) === -1) {
-        // If the file type is not supported, show an alert and stop the upload
+        console.error('Unsupported file type:', file.type);
         alert('Unsupported file type. Please upload a valid file.');
         return; // Stop the form submission
     }
@@ -84,4 +106,4 @@ $('#fileUpload').on('submit', function (e) {
             alert('File Upload Failed');
         }
     });
-});    
+});
