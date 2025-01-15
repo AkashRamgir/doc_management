@@ -27,6 +27,7 @@ $(document).ready(function () {
             },
             success:function(html){
                 $('.toast').toast('show')
+                $('.folder_section').load(' .folder_container ')
             }
         })
     })

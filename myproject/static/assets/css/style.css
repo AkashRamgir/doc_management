@@ -1689,6 +1689,7 @@ section {
   border-radius:20px;
   height: 100%;
   border: 0.5px solid #d2d2ddef !important;
+  overflow-y: auto;
 }
 .sidebar-menu .side-link{
   padding: 10px 2px 10px 12px;
@@ -1737,10 +1738,17 @@ section {
   position: relative;
   
 }
+.search_user{
+  padding: 12px 50px;
+  border: none;
+  background: transparent;
+}
+.search_user:focus,
 .search_wrapper input[type="text"]:focus{
   box-shadow: none;
   border: none;
 }
+.search_user:focus,
 .search_wrapper input[type="text"]{
   padding: 12px 50px;
   border: none;
@@ -1836,4 +1844,49 @@ section {
 }
 .dropdown-menu{
   width: 350px;
+}
+
+
+/*
+FOLDER CONTAINER CODE
+*/
+.folder_wrapper{
+    background: #f0f4f9;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.folder_wrapper .folder_details{
+  flex: 1;
+}
+.folder_wrapper:hover{
+  background: #e1e3e1;
+}
+
+.more_btn{
+  width: 20px !important;
+  height: 20px !important;
+ 
+  padding-top: 0;
+  padding-bottom: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+}
+.more_btn:hover{
+  background-color: #d1d1d1;
+}
+.folder_name{
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  width: 160px; 
+  height: 1.2em; 
+  white-space: nowrap;
 }

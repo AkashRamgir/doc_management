@@ -27,8 +27,8 @@ def create_new_folder(request):
     if(request.method == "POST"):
         folder_data = {
             'folder_name': folder_name,
-            'parent_folder_name' : parent_folder_id,
-            'parent_folder_id' : parent_folder_name,
+            'parent_folder_name' : parent_folder_name,
+            'parent_folder_id' : parent_folder_id,
             'user_id' : user_id,
             'created_on' : current_date,
             'created_on_date_time' : current_date_time,
