@@ -41,4 +41,8 @@ urlpatterns = [
     path('delete_user/', users.delete_user, name='delete_user'), 
     path('upload_file/', files.upload_file, name='upload_file'),
     
+
+    path('permission_denied/', views.permission_denied, name='permission_denied'),
+    path('logout/', views.logout, name='logout')
+    #  path('login_required/', views.login_required, name='login_required')
 ]
