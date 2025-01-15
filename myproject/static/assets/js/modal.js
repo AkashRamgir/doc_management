@@ -41,6 +41,7 @@ $(document).ready(function () {
 
 // Modal for File Upload Function
 function handleFileUpload(){
+    alert('File Upload Started')
     $('#fileUpload').submit()
 }
 
