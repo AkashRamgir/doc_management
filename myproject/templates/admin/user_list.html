@@ -1,0 +1,242 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block content %}
+<!-- Main body section starts here -->
+<div id="main_content">
+    <section>
+        <div class="my-5 text-right">
+            <button class="button button-primary" id="openModalBtn"><i class="fa-solid fa-plus"></i> Add
+            </button>
+        </div>
+        <table class="datatable border border-gray-150">
+            <thead>
+                <tr>
+                    <th class="text-center  border border-gray-150 text-xs">Sr. No</th>
+                    <th class="text-center  border border-gray-150 text-xs">User Profile</th>
+                    <th class="text-center  border border-gray-150 text-xs">Username</th>
+                    <th class="text-center  border border-gray-150 text-xs">Email</th>
+                    <th class="text-center  border border-gray-150 text-xs">Password</th>
+                    <th class="text-center  border border-gray-150 text-xs">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if user_role %}
+                {% for user in user_role %}
+                <tr>
+                    <td class="text-center  border border-gray-150 text-xs" style="vertical-align: middle">
+                        {{ forloop.counter }}
+                    </td>
+                    <td class="border border-gray-150 text-xs">
+                        <div style="display: flex; align-items: center">
+
+                            <!------------------------------- User Image ------------------------------------->
+                            <!-- <img src="{{ user.applicant_photo }}" alt="User Photo" class="w-[60px] rounded-full me-2" /> -->
+                            <!-- User Info -->
+                            <div class="w-8 h-8 flex justify-center items-center bg-indigo-700 rounded-full text-white">
+                                <strong> {{ user.full_name | slice:":1" }} </strong><br/>
+                            </div>
+                            <label for="" class="text-xs ms-2">{{ user.full_name }}</label>
+                            
+                        </div>
+                    </td>
+                    <td class="text-center border border-gray-150 text-xs" style="vertical-align: middle">
+                        {{ user.username }}
+                    </td>
+                    <td class="text-center border border-gray-150 text-xs" style="vertical-align: middle">
+                        {{ user.email }}
+                    </td>
+                    <td class="text-center border border-gray-150 text-xs" style="vertical-align: middle">
+                        ********
+                    </td>
+                    <!----------------CRUD Action Icons -------------->
+                    <td class="border border-gray-150 text-xs">
+                        <a class="btn btn-primary btn-sm update_user" title="Update User" data-user-id="{{ user.id }}">
+                            <i class="fa-solid fa-edit"></i>
+                        </a>
+                        <a class="btn btn-primary btn-sm" title="Delete User" data-user-id="{{ user.id }}">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                        <!-- <a class="btn btn-info btn-sm" title="View User">
+                      <i class="fa-solid fa-eye"></i>
+                    </a> -->
+                    </td>
+                </tr>
+                {% endfor %} {% else %}
+                <tr>
+                    <td colspan="4" class="text-xs" style="text-align: center">No users found.</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </section>
+
+
+</div>
+
+
+<!-- Main body section ends here -->
+
+
+<!-- Main Section ends here -->
+</main>
+<!-- Main section Ends here  -->
+</div>
+
+<div class="relative z-100 hidden transition-all  duration-300 ease-in-out" aria-labelledby="modal-title" role="dialog"
+    id="myModal" aria-modal="true">
+
+    <!--
+      Background backdrop, show/hide based on modal state.
+  
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <form method="POST" enctype="multipart/form-data" id="addUserForm">
+
+        {% csrf_token %}
+        <div class="fixed inset-0 bg-gray-500/75 transition-opacity " aria-hidden="true"></div>
+
+        <div class="fixed inset-0 z-[1000] w-screen overflow-y-auto">
+            <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <!--
+          Modal panel, show/hide based on modal state.
+  
+          Entering: "ease-out duration-300"
+            From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            To: "opacity-100 translate-y-0 sm:scale-100"
+          Leaving: "ease-in duration-200"
+            From: "opacity-100 translate-y-0 sm:scale-100"
+            To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+        -->
+                <div
+                    class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl w-50 transition-all sm:w-full sm:max-w-lg w-full">
+                    <div class="bg-white  pb-4 sm:pb-4">
+                        <button id="closeModalBtn"
+                            class="text-gray-500 hover:text-gray-700 float-right mx-2 text-[20px]">&times;</button>
+                        <div class="modal-header w-full py-2 bg-gray-50 rounded-tx-lg px-6">
+                            <h3 class="text-base font-semibold  text-lg  text-indigo-600" id="modal-title"><i
+                                    class="fa-solid fa-person-circle-plus"></i> Add User</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="mt-3 text-center sm:mt-0 sm:ml-0 sm:text-left w-full">
+
+                                <div class="my-2">
+                                    <div class="text-sm">
+                                        <label for="role">Role</label>
+                                    </div>
+                                    <div class="w-full">
+
+                                        <select name="role" id="role"
+                                            class="w-full rounded-xl border border-gray-200 py-2 px-3 text-sm focus:outline-indigo-600"
+                                            disabled required>
+                                            <option value="">-- Select Role --</option>
+                                            <option value="User" selected>User</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="my-2">
+                                    <div class="text-sm">
+                                        <label for="full_name">Full Name</label>
+                                    </div>
+                                    <div class="w-full">
+                                        <input type="text"
+                                            class="w-full rounded-xl border border-gray-200 py-2 px-3 text-sm focus:outline-indigo-600"
+                                            id="full_name" name="full_name" placeholder="Enter Full Name" required>
+                                    </div>
+
+                                </div>
+                                <div class="my-2">
+                                    <div class="text-sm">
+                                        <label for="username">Username</label>
+                                    </div>
+                                    <div class="w-full">
+                                        <input type="text"
+                                            class="w-full rounded-xl border border-gray-200 py-2 px-3 text-sm focus:outline-indigo-600"
+                                            id="username" name="username" placeholder="Enter Username" required>
+                                    </div>
+
+                                </div>
+                                <div class="my-2">
+                                    <div class="text-sm">
+                                        <label for="email">Email</label>
+                                    </div>
+                                    <div class="w-full">
+                                        <input type="email"
+                                            class="w-full rounded-xl border border-gray-200 py-2 px-3 text-sm focus:outline-indigo-600"
+                                            id="email" name="email" placeholder="Enter Email (e.g. useremail123@gmail.com)" required>
+                                    </div>
+
+                                </div>
+                                <div class="my-2">
+                                    <div class="text-sm">
+                                        <label for="password">Password</label>
+                                    </div>
+                                    <div class="w-full">
+                                        <input type="password"
+                                            class="w-full rounded-xl border border-gray-200 py-2 px-3 text-sm focus:outline-indigo-600"
+                                            id="password" name="password" placeholder="Enter Password">
+                                    </div>
+
+                                </div>
+                                <div class="my-2">
+                                    <div class="text-sm">
+                                        <label for="profilePhoto">Photo</label>
+                                    </div>
+                                    <div class="w-full">
+                                        <input type="file"
+                                            class="w-full rounded-xl border border-gray-200 py-2 px-3 text-sm focus:outline-indigo-600"
+                                            id="profilePhoto" name="profilePhoto" >
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                        <button type="submit"
+                            class="inline-flex w-full justify-center rounded-md bg-lime-600 px-3 py-2 text-sm font-medium  text-white shadow-xs hover:bg-lime-500 sm:ml-3 sm:w-auto">Submit</button>
+                        <button type="button"
+                            class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-medium text-gray-900 ring-1 shadow-xs ring-gray-300 ring-inset hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                            id="closeModalBtnFooter">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    const modal = document.getElementById('myModal');
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const closeModalBtnFooter = document.getElementById('closeModalBtnFooter');
+
+    openModalBtn.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('scale-1');
+    });
+
+    closeModalBtn.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('scale-1');
+    });
+
+    closeModalBtnFooter.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+
+
+    // Close the modal if the user clicks outside of the modal content area.  (Optional)
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.classList.add('hidden');
+        }
+    })
+</script>
+
+{% endblock %}

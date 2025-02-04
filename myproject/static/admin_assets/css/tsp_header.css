@@ -1,0 +1,92 @@
+/* ------------------------------ */
+/* header CSS here */
+/* ------------------------------ */
+.title p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+}
+
+.head {
+    padding: 18px 25px;
+    border-bottom: 1px solid var(--theme-grey);
+    background: #fff;
+}
+
+.header {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    width: 300px;
+    position: relative;
+    margin-right: 15px;
+}
+
+.search input {
+    width: 100%;
+    background: var(--theme-grey);
+    outline: none;
+    border: none;
+    padding: 13px 13px;
+    border-radius: 13px;
+    color: #919191;
+    font-size: 12px;
+}
+
+.search i {
+    color: #919191;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    transform: translate(-5%, -50%);
+    cursor: pointer;
+}
+
+.head-profile i{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Profile CSS code  */
+.profile-modal{
+    position: fixed;
+    background: #fff;
+    padding: 13px;
+    top: 1.5%;
+    right: -100%;
+    width: 30%;
+    height: 97vh;
+    border-radius: 13px;
+    box-shadow: 0 0 35px #272727;
+    transition: 500ms ease all;
+}
+
+.profile-modal i{
+    font-size: 20px;
+}
+.profile-modal.show{
+    right: 1%;
+}
+.add-modal{
+    top: 1.5%;
+    right: -100%;
+    transition: 500ms ease all;
+}
+.add-modal.show{
+    right: 1%;
+}

@@ -1,0 +1,204 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% block content %}
+<!-- Main body section starts here -->
+<div id="main_content">
+
+    <section>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="counts">
+                <div class="icon-container">
+                    <i class="fa-solid fa-users-gear"></i>
+                </div>
+                <div class="details">
+                    <p>0</p>
+                    <span>Total Users</span>
+                </div>
+            </div>
+            <div class="counts">
+                <div class="icon-container">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <div class="details">
+                    <p>0</p>
+                    <span>Active Users</span>
+                </div>
+            </div>
+            <div class="counts">
+                <div class="icon-container">
+                    <i class="fa-solid fa-user-lock"></i>
+                </div>
+                <div class="details">
+                    <p>0</p>
+                    <span>Total In-active Users</span>
+                </div>
+            </div>
+            <div class="counts">
+                <div class="icon-container">
+                    <i class="fa-solid fa-file-shield"></i>
+                </div>
+                <div class="details">
+                    <p>0</p>
+                    <span>Total Document</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="charts">
+        <div class="wrapper">
+            <div class="chart-contain">
+                <p class="title">Training Center List</p>
+                <table class="theme-table">
+                    <thead>
+                        <tr>
+                            <th>S.no</th>
+                            <th>Name</th>
+                            <th>Col 2</th>
+                            <th>Col 3</th>
+                            <th>Col 4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>S.no</td>
+                            <td>Col 1</td>
+                            <td>Col 2</td>
+                            <td>Col 3</td>
+                            <td>Col 4</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart-contain">
+                <p class="title"> Pie Chart</p>
+                <div class="pie-chart" id="pie">
+
+                </div>
+            </div>
+            <div class="chart-contain w-full">
+                <p class="title"> Activity Graph</p>
+                <div class="pie-chart" id="user_actitvity">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="wrapper">
+            <div class="chart-contain">
+                <p class="title">Chart 1</p>
+                <div id="container"></div>
+
+            </div>
+            <div class="chart-contain">
+                <p class="title">Chart 1</p>
+                <div id="line"></div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+</div>
+<!-- Main body section ends here -->
+
+
+<!-- Main Section ends here -->
+</main>
+<!-- Main section Ends here  -->
+</div>
+<script>
+    Highcharts.chart('user_actitvity', {
+
+        title: {
+            text: 'User Activity',
+            align: 'left'
+        },
+
+        subtitle: {
+            text: 'By Year',
+            align: 'left'
+        },
+
+        yAxis: {
+            title: {
+                text: 'Number of Documents'
+            }
+        },
+
+        xAxis: {
+            accessibility: {
+                rangeDescription: 'Range: 2020 to 2025'
+            }
+        },
+
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+                pointStart: 2010
+            }
+        },
+
+        series: [{
+            name: 'User 1',
+            data: [
+                43934, 48656, 65165, 81827, 112143, 142383,
+                171533, 165174, 155157, 161454, 154610, 168960, 171558
+            ]
+        }, {
+            name: 'User 2',
+            data: [
+                24916, 37941, 29742, 29851, 32490, 30282,
+                38121, 36885, 33726, 34243, 31050, 33099, 33473
+            ]
+        }, {
+            name: 'User 3',
+            data: [
+                11744, 30000, 16005, 19771, 20185, 24377,
+                32147, 30912, 29243, 29213, 25663, 28978, 30618
+            ]
+        }, {
+            name: 'User 4',
+            data: [
+                null, null, null, null, null, null, null,
+                null, 11164, 11218, 10077, 12530, 16585
+            ]
+        }, {
+            name: 'User 5',
+            data: [
+                21908, 5548, 8105, 11248, 8989, 11816, 18274,
+                17300, 13053, 11906, 10073, 11471, 11648
+            ]
+        }],
+
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+
+    });
+
+</script>
+
+{% endblock %}

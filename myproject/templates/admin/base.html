@@ -3,121 +3,358 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token }}">
-    <title>Doc Management</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="{% static 'img/favicon.png' %}" rel="icon">
-    <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
-
-    <!-- Vendor CSS Files -->
-    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
-    <!-- ICON LIBRARY -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-
-    <!-- GOOGLE FONT -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
-    
-    <!-- 
-  ----------------------------------------------
-  FOR TAGS CSS
-  ----------------------------------------------
-  -->
-    <link href="{% static 'assets/css/tags.css' %}" rel="stylesheet">
-    <!-- 
-  ----------------------------------------------
-  FOR FONTS CSS
-  ----------------------------------------------
-  -->
-    <link href="{% static 'assets/css/font.css' %}" rel="stylesheet">
-    <!-- 
-  ----------------------------------------------
-  FOR BUTTON CSS
-  ----------------------------------------------
-  -->
-    <link href="{% static 'assets/css/button.css' %}" rel="stylesheet">
-        <!-- 
-  ----------------------------------------------
-  FOR BUTTON CSS
-  ----------------------------------------------
-  -->
-  <link href="{% static 'assets/css/modal.css' %}" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/admin_assets/css/tsp_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/admin_assets/css/tsp_sidebar.css">
+    <link rel="stylesheet" href="/static/admin_assets/css/tsp_header.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="/static/assets/img/logos/s_logo.jpg" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="{% static 'assets/lib/multiSelect/multiSelectCSS/virtual-select.min.css' %}">
-    <script src="{% static 'assets/lib/multiSelect/multiSelectJS/virtual-select.js' %}"></script>
-    <script src="{% static 'assets/lib/multiSelect/multiSelectJS/virtual-select.min.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'assets/css/tags.css' %}">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.1.5/js/dataTables.tailwindcss.js"></script>
+    <script src="/static/assets/admin/user.js"></script>
+    
+  </head>
 </head>
 
 <body>
-    {% include 'admin/header.html' %}
+    <div class="body-wrapper">
+        <!-- sidebar starts here -->
+        {% include 'admin/sidebar.html' %}
+        <!-- Sidebar Ends Here -->
 
-    <section class="py-0 container-fluid  w-100">
-        <div class="wrapper-main">
-            {% include 'admin/sidebar.html' %}
+        <!-- Main section Starts here  -->
+        <main>
+
+
+            <!-- Header sectiom starts here -->
+            {% include 'admin/header.html' %}
+            <!-- Header sectiom ends here -->
+
+            <!-- Main body section starts here -->
             {% block content %}{% endblock %}
+            <!-- Main Section ends here -->
+        </main>
+        <!-- Main section Ends here  -->
+    </div>
+    <footer>
+        <div class="profile-modal">
+
+            <i class="fa-solid fa-xmark float-end pointer close-profile-modal"></i>
+            <div id="">
+                <div>
+                    <div class="grid  bg-transparent col-auto">
+                        <div class="w-24 text-center">
+
+                        </div>
+                        <div>
+                            <span class="name">Name Of Training Center</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
-    <div id="preloader"></div>
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
-        <i class="bi bi-arrow-up-short"></i>
-    </a>
+    </footer>
 
-    <!-- Vendor JS Files -->
-    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
-    <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
-    <script src="{% static 'assets/js/tags_menu.js' %}"></script>
-    <script src="{% static 'assets/js/modal.js' %}"></script>
-    <script src="{% static 'assets/admin/user.js' %}"></script>
 
-    <!-- Template Main JS File -->
-    <script src="{% static 'assets/js/main.js' %}"></script>
-    
-    
-  
-    <!-- <script>
-        $(document).ready(function (e) {
-            $('.search_container').on('click', function (e) {
-                e.stopPropagation(); // Prevent the click from propagating to the document
-                $('.drop-containter').removeClass('d-none');
-                $('.search_container').css('background', '#fff');
-                $('.search_container').css('box-shadow', '0px 0px 8px #dddd');
-            });
-            $(document).on('click', function (e) {
-                if (!$(e.target).closest('.search_container').length) {
-                    $('.drop-containter').addClass('d-none');
-                }
-            });
-        })
-        VirtualSelect.init({
-            ele: '.multiSelect',
-        });
-        $(function () {
-            $('[data-bs-toggle="tooltip"]').tooltip()
-        })
-    </script> -->
 
 </body>
+
+
+<script src="/static/admin_assets/js/dashboard.js"></script>
+<!-- <script src="./assets/js/header.js"></script> -->
+
+
+<script>
+    // Create the chart
+    Highcharts.chart('pie', {
+        chart: {
+            type: 'pie'
+        },
+        title: {
+            text: 'Organization Wise Students',
+            align: 'left'
+        },
+        subtitle: {
+            text: 'Total ',
+            align: 'left'
+        },
+        credits: {
+            enabled: false
+        },
+        accessibility: {
+            announceNewData: {
+                enabled: true
+            },
+            point: {
+                valueSuffix: ''
+            }
+        },
+
+        plotOptions: {
+            series: {
+                borderRadius: 5,
+                dataLabels: [{
+                    enabled: true,
+                    distance: 15,
+                    format: '{point.name}'
+                }, {
+                    enabled: true,
+                    distance: '-30%',
+                    filter: {
+                        property: 'percentage',
+                        operator: '>',
+                        value: 5
+                    },
+                    format: '{point.y:.1f}',
+                    style: {
+                        fontSize: '0.9em',
+                        textOutline: 'none'
+                    }
+                }]
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: ' +
+                '<b>{point.y:.2f}</b> of total<br/>'
+        },
+
+        series: [
+            {
+                name: 'Organization',
+                colorByPoint: true,
+                data: [
+                    {
+                        name: 'TRTI',
+                        y: 3000,
+                        drilldown: 'TRTI'
+                    },
+                    {
+                        name: 'SARTHI',
+                        y: 3000,
+                        drilldown: 'SARTHI'
+                    },
+                    {
+                        name: 'BARTI',
+                        y: 3000,
+                        drilldown: 'BARTI'
+                    },
+                    {
+                        name: 'MAHAJYOTI',
+                        y: 3000,
+                        drilldown: 'MAHAJYOTI'
+                    },
+                    {
+                        name: 'OTHER',
+                        y: 3000,
+                        drilldown: 'OTHER'
+                    },
+                ]
+            }
+        ],
+    });
+
+    Highcharts.chart('line', {
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Organization Wise Students',
+            align: 'left'
+        },
+        subtitle: {
+            text: 'Total ',
+            align: 'left'
+        },
+        credits: {
+            enabled: false
+        },
+        accessibility: {
+            announceNewData: {
+                enabled: true
+            },
+            point: {
+                valueSuffix: ''
+            }
+        },
+
+        plotOptions: {
+            series: {
+                borderRadius: 5,
+                dataLabels: [{
+                    enabled: true,
+                    distance: 15,
+                    format: '{point.name}'
+                }, {
+                    enabled: true,
+                    distance: '-30%',
+                    filter: {
+                        property: 'percentage',
+                        operator: '>',
+                        value: 5
+                    },
+                    format: '{point.y:.1f}',
+                    style: {
+                        fontSize: '0.9em',
+                        textOutline: 'none'
+                    }
+                }]
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: ' +
+                '<b>{point.y:.2f}</b> of total<br/>'
+        },
+
+        series: [
+            {
+                name: 'Organization',
+                colorByPoint: true,
+                data: [
+                    {
+                        name: 'TRTI',
+                        y: 3000,
+                        drilldown: 'TRTI'
+                    },
+                    {
+                        name: 'SARTHI',
+                        y: 3000,
+                        drilldown: 'SARTHI'
+                    },
+                    {
+                        name: 'BARTI',
+                        y: 3000,
+                        drilldown: 'BARTI'
+                    },
+                    {
+                        name: 'MAHAJYOTI',
+                        y: 3000,
+                        drilldown: 'MAHAJYOTI'
+                    },
+                    {
+                        name: 'OTHER',
+                        y: 3000,
+                        drilldown: 'OTHER'
+                    },
+                ]
+            }
+        ],
+    });
+
+    Highcharts.chart('container', {
+        chart: {
+            type: 'pie',
+            custom: {},
+            events: {
+                render() {
+                    const chart = this,
+                        series = chart.series[0];
+                    let customLabel = chart.options.chart.custom.label;
+
+                    if (!customLabel) {
+                        customLabel = chart.options.chart.custom.label =
+                            chart.renderer.label(
+                                'Total<br/>' +
+                                '<strong>2 877 820</strong>'
+                            )
+                                .css({
+                                    color: '#000',
+                                    textAnchor: 'middle'
+                                })
+                                .add();
+                    }
+
+                    const x = series.center[0] + chart.plotLeft,
+                        y = series.center[1] + chart.plotTop -
+                            (customLabel.attr('height') / 2);
+
+                    customLabel.attr({
+                        x,
+                        y
+                    });
+                    // Set font size based on chart diameter
+                    customLabel.css({
+                        fontSize: `${series.center[2] / 12}px`
+                    });
+                }
+            }
+        },
+        accessibility: {
+            point: {
+                valueSuffix: '%'
+            }
+        },
+        title: {
+            text: 'Document Specification'
+        },
+        subtitle: {
+            text: 'PDF | Image | Video | PPT | DOC'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.0f}%</b>'
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                borderRadius: 8,
+                dataLabels: [{
+                    enabled: true,
+                    distance: 20,
+                    format: '{point.name}'
+                }, {
+                    enabled: true,
+                    distance: -15,
+                    format: '{point.percentage:.0f}%',
+                    style: {
+                        fontSize: '0.9em'
+                    }
+                }],
+                showInLegend: true
+            }
+        },
+        series: [{
+            name: 'Gender Ratio',
+            colorByPoint: true,
+            innerSize: '75%',
+            data: [{
+                name: 'PDFs',
+                y: 50
+            }, {
+                name: 'Documents',
+                y: 45
+            }, {
+                name: 'Images',
+                y: 5
+            }]
+        }]
+    });
+
+</script>
+<script>
+    new DataTable(".datatable");
+</script>
 
 
 </html>
