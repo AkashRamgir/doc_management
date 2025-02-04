@@ -23,7 +23,7 @@
                 </label>
                 <div class="dropdown-divider"></div>
 
-                <!---------------------------------------------- Additional Options  -------------------------------------------------------->
+                <!---------------------------------------------- Additional Options -------------------------------------------------------->
                 <!-- Doc File Option -->
                 <a class="dropdown-item" href="#" id="docFileButton">
                     <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-blue-img me-2">
@@ -42,11 +42,12 @@
                     <!-- Hidden file input for uploading doc files -->
                     <input type="file" id="docFileInput" name="file" accept=".doc, .docx" class="d-none" onchange="handleFileUploadByType('doc', 'docUploadForm')">
                     <input type="hidden" name="parent_folder_id_file" id="doc_parent_folder_id_file" value='{{ request.GET.parent_folder|default:"0" }}'>
-                        <input type="hidden" name="user_id_file" id="fileDoc" value='{{ user_id }}'>
+                    <input type="hidden" name="user_id_file" id="fileDoc" value='{{ user_id }}'>
                     <input type="submit" class="d-none" id="submitBtn">
                 </form>
-                <!---------------------------------------------- Only Excel File Should Upload ----------------------------------------------------------------------------------->
-                <a class="dropdown-item" href="#">
+
+                <!--------------------- Excel File Option ---------------------------->
+                <a class="dropdown-item" href="#" id="excelFileButton">
                     <svg focusable="false" height="24" viewBox="0 0 24 24" width="24" class="theme-green-img me-2">
                         <path d="M0 0h24v24H0z" fill="none"></path>
                         <path
@@ -55,20 +56,43 @@
                     </svg>
                     Excel File
                 </a>
-                <!---------------------------------------------- Only Video File Should upload --------------------------------------------------------------------->
-                <a class="dropdown-item" href="#">
-                    <svg focusable="false" viewBox="0 -960 960 960" height="24" width="24"
-                        class="theme-purple-img me-2">
+
+                <!-- Form to upload excel files -->
+                <form action="/upload_file/" method="POST" enctype="multipart/form-data" id="excelUploadForm">
+                    {% csrf_token %}
+                    <label for="excelFileInput" class="d-none">Select Excel File:</label>
+                    <!-- Hidden file input for uploading excel files -->
+                    <input type="file" id="excelFileInput" name="file" accept=".xls, .xlsx" class="d-none" onchange="handleFileUploadByType('excel', 'excelUploadForm')">
+                    <input type="hidden" name="parent_folder_id_file" id="excel_parent_folder_id_file" value='{{ request.GET.parent_folder|default:"0" }}'>
+                    <input type="hidden" name="user_id_file" id="fileExcel" value='{{ user_id }}'>
+                    <input type="submit" class="d-none" id="submitExcelBtn">
+                </form>
+
+                <!--------------------- Video File Option ---------------------------->
+                <a class="dropdown-item" href="#" id="videoFileButton">
+                    <svg focusable="false" viewBox="0 -960 960 960" height="24" width="24" class="theme-purple-img me-2">
                         <path
                             d="M300-240L700-480L300-720v480Zm80-141V-579l164,99L380-381ZM200-120q-33,0-56.5-23.5T120-200V-760q0-33 23.5-56.5T200-840H760q33,0 56.5,23.5T840-760v560q0,33-23.5,56.5T760-120H200Z">
                         </path>
                     </svg>
                     Video
                 </a>
+
+                <!-- Form to upload video files -->
+                <form action="/upload_file/" method="POST" enctype="multipart/form-data" id="videoUploadForm">
+                    {% csrf_token %}
+                    <label for="videoFileInput" class="d-none">Select Video File:</label>
+                    <!-- Hidden file input for uploading video files -->
+                    <input type="file" id="videoFileInput" name="file" accept="video/*" class="d-none" onchange="handleFileUploadByType('video', 'videoUploadForm')">
+                    <input type="hidden" name="parent_folder_id_file" id="video_parent_folder_id_file" value='{{ request.GET.parent_folder|default:"0" }}'>
+                    <input type="hidden" name="user_id_file" id="fileVideo" value='{{ user_id }}'>
+                    <input type="submit" class="d-none" id="submitVideoBtn">
+                </form>
+
             </div>
         </div>
     </div>
-    <!---------------------------------------------- Another Section of the Sidebar Menue ----------------------------------------------------------------------------------->
+    <!---------------------------------------------- Another Section of the Sidebar Menu -----------------------------------------------------------------------------------> 
     <ul class="sidebar-menu">
         <li class="side-link active">
             <div class="side-icon">
@@ -111,8 +135,22 @@
         fileInput.click(); // Trigger the file input click to open the file dialog
     });
 
-    // Handle file selection and validation
-    function handleFileUploadByType( type, id) {
-        $('#'+id).submit();
+    // Attach event listener to Excel File button
+    document.getElementById("excelFileButton").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the default behavior of the link
+        var fileInput = document.getElementById("excelFileInput");
+        fileInput.click(); // Trigger the file input click to open the file dialog
+    });
+
+    // Attach event listener to Video File button
+    document.getElementById("videoFileButton").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the default behavior of the link
+        var fileInput = document.getElementById("videoFileInput");
+        fileInput.click(); // Trigger the file input click to open the file dialog
+    });
+
+    // Handle file selection and validation for Doc, Excel, and Video files
+    function handleFileUploadByType(type, id) {
+        $('#' + id).submit();
     }
 </script>
