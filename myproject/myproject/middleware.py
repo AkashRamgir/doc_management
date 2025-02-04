@@ -18,7 +18,7 @@ class AdminOnlyMiddleware:
 
         if request.path.startswith('/users/'):
             if not user:  # If no user in session, redirect to login
-                return redirect(reverse('login'))
+                return redirect('/')
             if user.get('role') != 'Admin':  # If user is not an admin, redirect to permission denied
                 return redirect('permission_denied')
 

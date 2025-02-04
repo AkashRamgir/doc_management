@@ -12,6 +12,7 @@ from django.contrib import messages
 from bson import ObjectId
 from datetime import datetime
 from django.contrib.auth.decorators import login_required 
+import json
 
 # Configure MongoDB connection
 client = pymongo.MongoClient('mongodb://127.0.0.1:27017')
@@ -224,3 +225,17 @@ def delete_user(request):
             return JsonResponse({'status': 'error', 'message': str(e)}, status=500)
     
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
+
+def get_duplicate_username(request):
+    if request.method == 'POST':  # Important: Handle only POST requests
+        username = request.POST.get('username')
+        if username: # Check if username is provided
+            users = list(collection.find({'username': username}))
+            if users: # More Pythonic way to check for non-empty list
+                return JsonResponse({'status': 'Not Empty'}) # Return JSON
+            else:
+                return JsonResponse({'status': 'Empty'}) # Return JSON
+        else:
+            return JsonResponse({'status': 'Error', 'message': 'Username is required'}) #Handle missing username
+    else:
+        return JsonResponse({'status': 'Error', 'message': 'Invalid request method'}) # Handle GET requests or other methods

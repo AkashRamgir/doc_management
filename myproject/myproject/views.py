@@ -3,6 +3,7 @@ import pymongo
 from django.http import HttpResponse, HttpResponseServerError, JsonResponse
 import base64
 import bcrypt
+from django.contrib.auth.decorators import login_required, user_passes_test
 
 
 # Configure MongoDB connection
@@ -12,10 +13,15 @@ collection = mydb.tribal_data
 
 
 def homepage(request):
-    return render(request, "homepage_new.html")
+    return render(request, "login_new.html")
+
+def homepage_new(request):
+    return render(request, "login_new.html")
+
+def login_test(request):
+   return JsonResponse(request.POST)
 
 def index(request):
-    
     client = pymongo.MongoClient('mongodb://localhost:27017/')
     db = client['Document_Management']
     user = request.session.get('user')  # Retrieve user from session
@@ -64,6 +70,7 @@ def registration(request):
 
 
 def submit_admin_login(request):
+   
     client = pymongo.MongoClient('mongodb://localhost:27017/')
     db = client['Document_Management']
     collection = db['coll_admin']
@@ -75,7 +82,6 @@ def submit_admin_login(request):
 
         # Fetch all users that match the role
         users = list(collection.find({'role': role}))
-        print('Users', users)
         # Iterate over users and check username and password
         user_found = None
         for user in users:
@@ -88,8 +94,10 @@ def submit_admin_login(request):
         if user_found:
             user_found['_id'] = str(user_found['_id'])  # Convert _id to string for JSON compatibility
             request.session['user'] = user_found
-            print("User logged in:", user_found)
-            return redirect('index')
+            if(role == "Admin"):
+                return redirect('/admins/index/')
+            else:
+                return redirect('index')
         else:
             print("Incorrect username/password or no user found")
             return redirect('login')

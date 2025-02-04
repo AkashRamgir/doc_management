@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        * {
+            /* font-family: "Montserrat", serif; */
+            /* font-family: "Lato", serif; */
+            font-family: "Open Sans", serif;
+        }
+
+        button.active {
+            background-color: #615fff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="p-4">
+    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 ">
+        <!---------------------------------
+        SECTION 1 
+        ---------------------------------->
+        <div class="aspect-square">
+            <div class="mt-5 flex flex-row items-center px-30">
+                <img src="/static/assets/img/logos/s_logo.jpg" class="w-15 aspect-square" alt="Shabari Logo">
+                <img src="https://bharatinighali.com/wp-content/uploads/2023/11/maha-trible-2023-235x300.png" class="w-15 mx-2 aspect-auto" alt="Shabari Logo">
+            </div>
+            <div class="px-30 pt-10">
+                <h2 class="text-2xl font-medium tracking-normal">Storage Vault</h2>
+                <span class="text-xs font-medium">Enter your credentials to access your account</span>
+                <form action="{% url 'submit_admin_login' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="mt-10">
+                        <div class="flex flex-row justify-between w-full lg:w-1/2 gap-4">
+                            <button type="button"
+                                class="px-10 w-full lg:w-1/2 border-1 text-indigo-500 border-indigo-600 py-2 rounded-2xl font-semibold cursor-pointer hover:bg-indigo-600 hover:text-white transition-all duration-300 active toggle-active" data-hidden="Admin"><i
+                                    class="fa-solid fa-screwdriver-wrench"></i> Admin</button>
+
+                            <button type="button"
+                                class="px-10 w-full lg:w-1/2 text-indigo-500 border-1 py-2 font-semibold  rounded-2xl cursor-pointer hover:bg-indigo-600 hover:text-white transition-all duration-300 toggle-active" data-hidden="User">
+                                <i class="fa-regular fa-user"></i> User</button>
+                            <input type="hidden" name="role" id="role" value="Admin">
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-100 my-5"></div>
+
+                    <div class="flex flex-col gap-3 column-1 w-full">
+                        <div class="w-full basis-1/1">
+                            <label for="username" class="font-medium text-sm">Username</label>
+                            <input type="text" placeholder="Enter Username" name="username"
+                                class="w-full text-sm py-3 px-3 rounded-xl outline outline-gray-200 focus:outline-indigo-500 focus:shadow-indigo-500/50 focus:shadow-lg transition-all duration-300 ease-in-out">
+                        </div>
+                        <div class=" w-full basis-1/1">
+                            <label for="username" class="font-medium text-sm">Password</label>
+                            <input type="password" placeholder="Enter Password" name="password"
+                                class="w-full text-sm py-3 px-3 rounded-xl outline outline-gray-200 focus:outline-indigo-500 focus:shadow-indigo-500/50 focus:shadow-lg transition-all duration-300 ease-in-out ">
+                        </div>
+                        <div class=" w-full basis-1/1">
+                            <button type="submit" class="py-2 mt-10 bg-indigo-600 w-full text-white rounded-xl hover:bg-indigo-700"> <i class="fa-solid fa-arrow-right-to-bracket"></i> Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!---------------------------------
+        SECTION 2 
+        ---------------------------------->
+        <div class="bg-indigo-500 aspect-square rounded-xl py-30 px-30">
+            <div>
+                <h1 class="text-white text-3xl font-medium tracking-wide"> My Drive: Your Organized Digital Life. </h1>
+                <span class="text-white text-xs font-medium tracking-wide">Declutter your files and find what you need
+                    instantly,
+                    with intuitive organization tools.
+                </span>
+            </div>
+            <div class="mt-10">
+                <img src="https://cdn.dribbble.com/users/4906166/screenshots/15742583/media/fc219d587966b0bdd86af90f1feb2e7d.png?resize=1000x750&vertical=center"
+                    class="rounded-xl" alt="">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script>
+    $(document).ready(function () {
+        $('.toggle-active').on('click', function () {
+            $('.toggle-active.active').removeClass('active')
+            $(this).addClass('active')
+            $('#role').val($(this).data('hidden'))
+        })
+    })
+</script>
+
+</html>

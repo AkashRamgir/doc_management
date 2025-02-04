@@ -1,0 +1,89 @@
+/* 
+Training Center Dashboard 
+Silver Tech Private Limited
+*/
+@import url('./tsp_style.css');
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 13px;
+    object-fit: contain;
+}
+
+.logo .name {
+    color: #f2f2f2;
+    font-size: 0.9rem;
+}
+
+.logo i {
+    color: #ffff;
+}
+
+
+
+
+/* Main Body container CSS */
+.counts-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    gap: 2%;
+}
+
+.counts {
+    background: #fff;
+    padding: 15px;
+    border-radius: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.counts .icon-container {
+    background: var(--dark-primary);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.counts .icon-container i {
+    color: #fff;
+}
+
+.counts .details {
+    width: 70%;
+}
+
+.counts .details p {
+    font-size: 28px;
+}
+
+.counts .details span {
+    font-size: 12px;
+    line-height: 0;
+}
+
+#charts .wrapper{
+    display: grid;
+    grid-template-columns: 49% 49%;
+    gap: 35px;
+    margin-top: 20px;
+}
+#charts .wrapper div.chart-contain{
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+}

@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views, folders, users
+from . import views, folders, users, admins
 from . import files
 
 urlpatterns = [
@@ -43,6 +43,13 @@ urlpatterns = [
     
 
     path('permission_denied/', views.permission_denied, name='permission_denied'),
-    path('logout/', views.logout, name='logout')
+    path('logout/', views.logout, name='logout'),
     #  path('login_required/', views.login_required, name='login_required')
+    
+    # =====================================================================
+    # ADMIN FUNCTIONALITY AND ROUTES
+    # =====================================================================
+    path('admins/index/', admins.dashboard, name="Admin Dashboard"),
+    path('admins/user_list/', admins.user_list, name='user_list'),
+    path('get_duplicate_username', users.get_duplicate_username, name='get_duplicate_username'),
 ]
