@@ -3,11 +3,12 @@
 {% block content %}
 <!-- Main body section starts here -->
 <div id="main_content">
-    <section>
-        <div class="my-5 text-right">
-            <button class="button button-primary" id="openModalBtn"><i class="fa-solid fa-plus"></i> Add
-            </button>
-        </div>
+    <div class="my-5 text-right">
+        <button class="button button-primary" id="openModalBtn"><i class="fa-solid fa-plus"></i> Add
+        </button>
+    </div>
+    <section class="p-10 bg-white rounded-lg">
+
         <table class="datatable border border-gray-150">
             <thead>
                 <tr>
@@ -33,10 +34,10 @@
                             <!-- <img src="{{ user.applicant_photo }}" alt="User Photo" class="w-[60px] rounded-full me-2" /> -->
                             <!-- User Info -->
                             <div class="w-8 h-8 flex justify-center items-center bg-indigo-700 rounded-full text-white">
-                                <strong> {{ user.full_name | slice:":1" }} </strong><br/>
+                                <strong> {{ user.full_name | slice:":1" }} </strong><br />
                             </div>
                             <label for="" class="text-xs ms-2">{{ user.full_name }}</label>
-                            
+
                         </div>
                     </td>
                     <td class="text-center border border-gray-150 text-xs" style="vertical-align: middle">
@@ -131,8 +132,8 @@
                                     <div class="w-full">
 
                                         <select name="role" id="role"
-                                            class="w-full rounded-xl border border-gray-200 py-2 px-3 text-sm focus:outline-indigo-600"
-                                            disabled required>
+                                            class="w-full rounded-xl border bg-gray-150 border-gray-200 py-2 px-3 text-sm focus:outline-indigo-600"
+                                            required>
                                             <option value="">-- Select Role --</option>
                                             <option value="User" selected>User</option>
                                         </select>
@@ -168,7 +169,8 @@
                                     <div class="w-full">
                                         <input type="email"
                                             class="w-full rounded-xl border border-gray-200 py-2 px-3 text-sm focus:outline-indigo-600"
-                                            id="email" name="email" placeholder="Enter Email (e.g. useremail123@gmail.com)" required>
+                                            id="email" name="email"
+                                            placeholder="Enter Email (e.g. useremail123@gmail.com)" required>
                                     </div>
 
                                 </div>
@@ -190,7 +192,7 @@
                                     <div class="w-full">
                                         <input type="file"
                                             class="w-full rounded-xl border border-gray-200 py-2 px-3 text-sm focus:outline-indigo-600"
-                                            id="profilePhoto" name="profilePhoto" >
+                                            id="profilePhoto" name="profile_photo">
                                     </div>
 
                                 </div>
